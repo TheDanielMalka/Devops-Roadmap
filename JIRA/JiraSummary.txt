@@ -1,0 +1,33 @@
+DevOps Roadmap.
+
+Jira & GitHub Integration & DevOps Workflow
+
+1. Jira Infrastructure & Agile Management
+Agile Board & Sprints: Managing tasks using a Board divided into a Backlog (future tasks) and Sprints (active work cycles).
+
+Issue Keys: Using unique identifiers (e.g., SCRUM-6) as the anchor for all Git-to-Jira communication.
+
+Metadata (Labels & Components): Organizing tasks for better scannability and automation (e.g., tagging infrastructure tasks with the Infra label).
+
+2. Smart Commits (Terminal-to-Jira Automation)
+Instead of manual updates in the browser, we use Git commands to update Jira issues directly:
+
+Commenting: Adding progress notes via git commit -m "KEY-ID #comment Message".
+
+Time Tracking: Automatically logging work hours using the #time command (e.g., #time 1h 20m).
+
+Status Transitions: Moving issues between columns (e.g., To Do to In Progress) directly from the commit message.
+
+3. Professional Git Workflow & Collaboration
+Feature Branching: Isolating work by creating task-specific branches using git checkout -b feature/branch-name to keep the main branch stable.
+
+Pull Requests (PR): Facilitating code reviews and team collaboration before merging code.
+
+Automated Transitions: Utilizing the "Closes KEY-ID" keyword in PR descriptions to automatically move Jira issues to Done upon a successful merge.
+
+4. Build Tools & Packaging (The DevOps "Engine")
+Build Tools (NPM): Configuring package.json to manage project dependencies and lifecycle scripts.
+
+The Build Process: Implementing a build script to transform source code into a deployable format.
+
+Artifact Generation: Creating a dist/ directory which serves as the Artifact (the final, shippable product of the development cycle).

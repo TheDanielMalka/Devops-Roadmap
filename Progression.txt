@@ -19,3 +19,9 @@ Sprints + Backlog management ✅
 Git Workflows Strategies (Git Flow vs. Trunk-Based) ✅
 
 Automated Task Transitioning (Closing Jira Issues via PR) ✅
+
+25/01/2026
+ Last Session Summary: Completed Git Flow vs Trunk-Based discussion.
+
+
+

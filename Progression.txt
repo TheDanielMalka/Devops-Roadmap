@@ -47,6 +47,8 @@ Repository Refactoring – Restructured the main Repo into a professional "Monor
 
 27/01/2026 
 
-- Built a custom Logging Middleware to track server requests.
-- Implemented basic Access Control using Query Parameters (?admin=true).
-- Integrated dotenv for dynamic PORT management.
+- Built a custom Logging Middleware to track server requests.✅
+- Built an API endpoint (/infrastructure) that returns data in JSON format. ✅
+- Added a basic security check using a key in the URL (?admin=true). ✅
+- Created an automated script to check if the .env file exists before the server starts. ✅
+- Linked scripts together so the server won't run if the setup is missing. ✅

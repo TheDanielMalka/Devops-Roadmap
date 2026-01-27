@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "npm run check-env && node app.js",
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check-env": "node -e \"require('fs').existsSync('.env') ? console.log('✅ ENV Found') : (console.error('❌ MISSING ENV FILE!'), process.exit(1))\""
   },
   "keywords": [],
   "author": "",

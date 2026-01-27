@@ -44,3 +44,9 @@ Dev Productivity Automation – Configured Nodemon with custom NPM scripts for a
 LeetCode Automation Sync – Integrated LeetHub to automate the synchronization of daily algorithmic challenges with GitHub. ✅
 
 Repository Refactoring – Restructured the main Repo into a professional "Monorepo" layout with a centralized .gitignore and global README. ✅
+
+27/01/2026 
+
+- Built a custom Logging Middleware to track server requests.
+- Implemented basic Access Control using Query Parameters (?admin=true).
+- Integrated dotenv for dynamic PORT management.

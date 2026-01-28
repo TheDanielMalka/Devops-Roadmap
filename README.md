@@ -16,7 +16,7 @@ I treat my learning process as a professional project. This repository isn't jus
 
 ## 📈 Progression Tracking
 I maintain full transparency of my growth:
-* **[Daily Progression Log](./Progress-And-README/Progression.txt):** What I implemented today.
+* **[Daily Progression Log](./Progression.txt):** What I implemented today.
 * **[Sprint Roadmap](./Progress-And-README/Roadmap.txt):** The high-level plan (Updated bi-weekly).
 
 ## 🧮 Logic & Scripting (LeetCode)

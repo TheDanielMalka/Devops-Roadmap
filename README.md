@@ -17,7 +17,7 @@ I treat my learning process as a professional project. This repository isn't jus
 ## 📈 Progression Tracking
 I maintain full transparency of my growth:
 * **[Daily Progression Log](./Progression.txt):** What I implemented today.
-* **[Sprint Roadmap](./Progress-And-README/Roadmap.txt):** The high-level plan (Updated bi-weekly).
+* **[LINKDIN](https://www.linkedin.com/in/daniel-malkaa/)
 
 ## 🧮 Logic & Scripting (LeetCode)
 Continuous improvement of algorithmic thinking and scripting proficiency:

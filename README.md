@@ -9,7 +9,7 @@ I treat my learning process as a professional project. This repository isn't jus
 * **Professional Standards:** Implementing CI/CD, Linting, and Testing from day one.
 
 ## 🛠 Tech Stack & Ecosystem Integration
-* **Project Management:** [Jira](https://the-daniel-malka.atlassian.net/) (Scrum methodology)
+* **Project Management:** [Jira](https://the-daniel-malka.atlassian.net/jira) (Scrum methodology)
 * **CI/CD Pipeline:** GitHub Actions (Automated Test & Lint)
 * **Environment & Config:** NPM & Python
 * **Source Control:** Git (Trunk-based workflow)

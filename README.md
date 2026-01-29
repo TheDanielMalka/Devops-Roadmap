@@ -14,7 +14,7 @@ I treat my learning process as a professional project. This repository isn't jus
 * **Environment & Config:** NPM & Python
 * **Source Control:** Git (Trunk-based workflow)
 
-## 📈 Progression Tracking
+## 📈 Progress Tracking
 I maintain full transparency of my growth:
 * **[Daily Progression Log](./Progression.txt):** What I implemented today.
 * **[LINKDIN](https://www.linkedin.com/in/daniel-malkaa/)

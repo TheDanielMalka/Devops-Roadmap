@@ -77,3 +77,12 @@ System Foundation: Defined core Linux & OS pillars (Shell, Permissions, Virtuali
 
 Done with First Sprint - Tommorow Starting New Sprinit 
 
+
+01/02/2026
+
+New Sprint Started 
+
+-Implented Milestones and Labels 
+-Workflow : TrunkBased
+
+

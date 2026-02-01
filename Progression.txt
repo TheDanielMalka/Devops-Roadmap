@@ -86,3 +86,16 @@ New Sprint Started
 -Workflow : TrunkBased
 
 
+=== SCRUM-20: Basic Concepts of Operating Systems ===
+
+OS Architecture: Kernel manages hardware with full access, User Space runs applications with limited permissions, System Calls bridge between them.
+
+Process Creation: fork() duplicates parent process, exec() replaces child code with new program. Every process born from another (except PID 1 created by Kernel at boot).
+
+Process States: R (running), S (sleeping - interruptible), D (sleeping - uninterruptible, stuck on I/O), T (stopped by signal), Z (zombie - finished but parent didn't read exit status).
+
+Memory Management: Virtual Memory gives each process isolated address space. Kernel translates virtual to physical addresses. Memory divided into Pages (4KB blocks). When RAM full, inactive pages moved to Swap (disk). Heavy Swap usage = performance problem.
+
+System Calls & Interrupts: System Call = application requests service from Kernel (user-initiated). Interrupt = hardware notifies Kernel that event occurred (hardware-initiated). Both are bridges between different layers of the system.
+
+Assessment: 82% overall (78% background check, 100% new material)

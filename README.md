@@ -18,10 +18,5 @@ I treat my learning process as a professional project. This repository isn't jus
 I maintain full transparency of my growth:
 * **[Daily Progression Log](./Progression.txt):** What I implemented today.
 * **[LINKDIN](https://www.linkedin.com/in/daniel-malkaa/)
-
-## 🧮 Logic & Scripting (LeetCode)
-Continuous improvement of algorithmic thinking and scripting proficiency:
-[![LeetCode Stats](https://leetcard.jacoblin.cool/DanielMalka-?theme=dark&font=Ubuntu)](https://leetcode.com/DanielMalka-)
-
 ---
 *Developed by Daniel Malka - Focused on mastering DevOps through hands-on infrastructure engineering.*

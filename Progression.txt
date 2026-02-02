@@ -99,3 +99,12 @@ Memory Management: Virtual Memory gives each process isolated address space. Ker
 System Calls & Interrupts: System Call = application requests service from Kernel (user-initiated). Interrupt = hardware notifies Kernel that event occurred (hardware-initiated). Both are bridges between different layers of the system.
 
 Assessment: 82% overall (78% background check, 100% new material)
+
+
+02/02/2026
+
+Morning review on yesterday subjects.
+Morning Kahoot on SCRUM-20 and Yesterday with 93% wr.
+
+ 
+

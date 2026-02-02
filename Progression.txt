@@ -107,4 +107,8 @@ Morning review on yesterday subjects.
 Morning Kahoot on SCRUM-20 and Yesterday with 93% wr.
 
  
+SCRUM-22:
+Covered Shell mechanics, focusing on command chaining with Pipes and basic process filtering.
+Environment Variables: Understood the concept of environment variables and Secret injection in CI/CD to prevent hardcoding sensitive data.
+
 

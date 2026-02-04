@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 DevOps Roadmap - Zero to Production Engineer
 
 Welcome to my unique DevOps journey. Unlike traditional learning, this repository documents a **"Build While You Learn"** methodology. I am building a complete, enterprise-grade DevOps ecosystem from scratch, implementing every concept as I master it.

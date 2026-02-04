@@ -1,0 +1,62 @@
+Report Date: Wed Feb  4 12:48:00 IST 2026
+==========================
+--------------------------
+REPOSITORY: TheDanielMalka/DevOps-Roadmap-
+--------------------------
+  From Issue #29:
+- [ ] Develop daily_sync.sh script to fetch open issues from multiple repositories.
+- [ ] Implement Regex logic to filter only unchecked items [ ] from issue bodies.
+- [ ] Format the output into a clean, dated daily_tasks.txt file.
+- [ ] Create a Bash Alias sync-tasks for quick daily execution.
+- [ ] Add error handling for network issues or unauthorized API access.
+
+  From Issue #22:
+- [ ] Webhooks Basics for Third-party Integration
+- [ ] Configuring Slack/Email Notifications for System Events
+
+  From Issue #21:
+- [ ] System Logs Overview (/var/log/syslog, /var/log/auth.log)
+- [ ] Introduction to Journald & journalctl
+- [ ] Log Rotation Concepts (logrotate)
+
+  From Issue #20:
+- [ ] Network Monitoring (iftop, nload)
+
+  From Issue #19:
+- [ ] Hypervisors (Type 1 vs Type 2)
+- [ ] Working with WSL2
+- [ ] Intro to Containers vs VMs
+- [ ] Resource Allocation (CPU/RAM)
+
+  From Issue #18:
+- [ ] Generating SSH Keys (ssh-keygen)
+- [ ] Public vs Private Keys
+- [ ] Configuring ~/.ssh/config
+- [ ] Secure Access to Remote Servers
+
+  From Issue #17:
+- [ ] FHS (Filesystem Hierarchy Standard)
+- [ ] Special Permissions (SUID, SGID, Sticky Bit)
+- [ ] Mounting & Storage Basics
+
+--------------------------
+REPOSITORY: TheDanielMalka/linux-resource-monitor
+--------------------------
+  From Issue #8:
+- [ ] Automate Crontab entry creation via setup script.
+- [ ] Implement Log Rotation to prevent log files from filling up the disk.
+
+  From Issue #7:
+- [ ] Integrate Slack Webhook with formatted JSON payloads.
+- [ ] Securely manage Secrets and Environment Variables.
+
+  From Issue #6:
+- [ ] Create setup.sh for automated deployment.
+- [ ] Automated log directory creation and permission setting (chmod).
+- [ ] Add OS compatibility check (e.g., Ubuntu/CentOS).
+
+  From Issue #5:
+- [ ] Add CPU Load Average extraction (1, 5, 15 min).
+- [ ] Implement Top 3 Processes logic (identify memory-hungry apps during spikes).
+- [ ] Add robust Error Handling and Exit Codes.
+

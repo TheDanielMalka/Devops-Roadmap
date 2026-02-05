@@ -111,3 +111,9 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 - Automated Task Scraping: Built a custom script using jq to extract Subtasks directly from GitHub Issue bodies.
 - Git & Permissions: Resolved complex Permission Denied errors between WSL and Windows filesystems and optimized .gitignore for local logs.
 - Workflow Automation: Created a global 'sync-tasks' Alias to generate a daily_tasks.txt report from any terminal directory.
+
+05/02/2026
+
+=== Infrastructure: SSH & Security Foundations ===
+- SSH Key Generation: Generated a high-security ED25519 key pair, prioritizing modern cryptographic standards over legacy RSA.
+- Asymmetric Encryption: Established a deep understanding of Public/Private key pairs and the Challenge-Response authentication mechanism.

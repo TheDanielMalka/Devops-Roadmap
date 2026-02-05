@@ -63,7 +63,7 @@ Repository Refactoring – Restructured the main Repo into a professional "Monor
 -Progression Update: Sprint 1 Closure & Infrastructure Prep
 ✅ Sprint 1 Review Completed: Conducted a comprehensive summary marathon. Demonstrated full proficiency in Git Flow, Express Middlewares, and GitHub Actions (Final Score: 97%).
 
-🛠️ Work Infrastructure Ready: Prepared the environment for the next sprint across all platforms:
+🛠️ Work Infrastructure Ready: דrepared the environment for the next sprint across all platforms:
 
 GitHub: Configured professional Labels (Security, Infrastructure, Automation, CI/CD) and initialized the Sprint 2 Milestone.
 
@@ -75,40 +75,39 @@ System Foundation: Defined core Linux & OS pillars (Shell, Permissions, Virtuali
 
 31/01/2026
 
-Done with First Sprint - Tommorow Starting New Sprinit 
-
+Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 
 01/02/2026
 
-New Sprint Started 
-
--Implented Milestones and Labels 
--Workflow : TrunkBased
-
+🚀 Sprint 2 Official Launch: 
+- [cite_start]Established Sprint 2 Milestones and defined a Trunk-Based Development workflow. [cite: 19, 22]
+- [cite_start]Professional Labeling System: Implemented a hierarchical labeling system in GitHub including Issue Types, Sub-labels (Security, Infrastructure, Automation), and Milestone tracking. [cite: 19]
 
 === SCRUM-20: Basic Concepts of Operating Systems ===
-
-OS Architecture: Kernel manages hardware with full access, User Space runs applications with limited permissions, System Calls bridge between them.
-
-Process Creation: fork() duplicates parent process, exec() replaces child code with new program. Every process born from another (except PID 1 created by Kernel at boot).
-
-Process States: R (running), S (sleeping - interruptible), D (sleeping - uninterruptible, stuck on I/O), T (stopped by signal), Z (zombie - finished but parent didn't read exit status).
-
-Memory Management: Virtual Memory gives each process isolated address space. Kernel translates virtual to physical addresses. Memory divided into Pages (4KB blocks). When RAM full, inactive pages moved to Swap (disk). Heavy Swap usage = performance problem.
-
-System Calls & Interrupts: System Call = application requests service from Kernel (user-initiated). Interrupt = hardware notifies Kernel that event occurred (hardware-initiated). Both are bridges between different layers of the system.
-
-Assessment: 82% overall (78% background check, 100% new material)
-
+- [cite_start]Deep dive into OS Architecture: Kernel vs. User Space, System Calls, and Process Lifecycle (fork/exec). [cite: 23, 24, 25]
+- [cite_start]Memory Management: Explored Virtual Memory, Paging (4KB), and Swap mechanics. [cite: 27, 28]
+- [cite_start]Process States: Analyzed R, S, D, T, and Zombie (Z) states. [cite: 26]
+- [cite_start]Performance Assessment: 82% overall score on OS fundamentals. [cite: 30]
 
 02/02/2026
 
-Morning review on yesterday subjects.
-Morning Kahoot on SCRUM-20 and Yesterday with 93% wr.
+=== SCRUM-21 & SCRUM-22: Linux Mastery & Agile Planning ===
+- [cite_start]Advanced Shell Mechanics: Mastered command chaining, Pipes, and process filtering. [cite: 32]
+- [cite_start]Secret Management: Implemented Environment Variables and Secret injection for CI/CD pipelines. [cite: 32]
+- Agile Refinement (Issues 19-23): Detailed breakdown of Jira issues into actionable Subtasks, covering Virtualization (WSL2), Network Monitoring, and Log Management.
 
- 
-SCRUM-22:
-Covered Shell mechanics, focusing on command chaining with Pipes and basic process filtering.
-Environment Variables: Understood the concept of environment variables and Secret injection in CI/CD to prevent hardcoding sensitive data.
+03/02/2026
 
+=== Project: Linux Resource Monitor (Initial Phase) ===
+- Project Architecture: Initialized a Bash-based monitoring tool to track CPU Load, RAM usage, and Disk health.
+- Data Extraction: Developed parsing logic for system commands (top, df, free).
+- Feature Implementation: Added "Top 3 Processes" logic to identify resource-heavy applications during spikes.
+- Error Handling: Integrated robust exit codes and automated log directory creation with proper permissions.
 
+04/02/2026
+
+=== Project: GitHub Issue Automation Scraper ===
+- Environment Sync: Successfully configured GitHub CLI (gh) in Git Bash/MinTTY with winpty workarounds.
+- Automated Task Scraping: Built a custom script using jq to extract Subtasks directly from GitHub Issue bodies.
+- Git & Permissions: Resolved complex Permission Denied errors between WSL and Windows filesystems and optimized .gitignore for local logs.
+- Workflow Automation: Created a global 'sync-tasks' Alias to generate a daily_tasks.txt report from any terminal directory.

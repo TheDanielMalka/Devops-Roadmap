@@ -117,3 +117,5 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 === Infrastructure: SSH & Security Foundations ===
 - SSH Key Generation: Generated a high-security ED25519 key pair, prioritizing modern cryptographic standards over legacy RSA.
 - Asymmetric Encryption: Established a deep understanding of Public/Private key pairs and the Challenge-Response authentication mechanism.
+- SSH Configuration: Switched remote origin from HTTPS to SSH for professional DevOps workflow.
+- Key Exchange: Verified asymmetric encryption handshake with GitHub using the ED25519 key pair.

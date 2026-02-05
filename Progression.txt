@@ -120,3 +120,5 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 - SSH Management: Created and configured ~/.ssh/config for streamlined host management.
 - Automation: Defined Host rules for GitHub to automate identity file selection.
 - Infrastructure: Established a professional DevOps foundation for multi-server connectivity.
+- SSH Configuration: Switched remote origin from HTTPS to SSH for professional DevOps workflow.
+- Key Exchange: Verified asymmetric encryption handshake with GitHub using the ED25519 key pair.

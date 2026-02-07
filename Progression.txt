@@ -122,3 +122,10 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 - Infrastructure: Established a professional DevOps foundation for multi-server connectivity.
 - SSH Configuration: Switched remote origin from HTTPS to SSH for professional DevOps workflow.
 - Key Exchange: Verified asymmetric encryption handshake with GitHub using the ED25519 key pair.
+
+07/02/2026
+
+=== Project: Linux Resource Monitor - Error Handling (Issue #5) ===
+- Implemented log file write permission validation with proper exit codes.
+- Configured Trunk-Based workflow with feature branches and Smart Commit linking.
+- Sprint 2 Prep: Completed knowledge review via Kahoot. Ready for next week's progression.

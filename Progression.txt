@@ -129,3 +129,11 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 - Implemented log file write permission validation with proper exit codes.
 - Configured Trunk-Based workflow with feature branches and Smart Commit linking.
 - Sprint 2 Prep: Completed knowledge review via Kahoot. Ready for next week's progression.
+
+08/02/2026
+
+=== Project: Linux Resource Monitor - Infrastructure as Code (Issue #6) ===
+- Created setup.sh for automated deployment and environment preparation.
+- Implemented OS compatibility check using /etc/os-release with source loading.
+- Automated log directory creation (/var/log/monitor) with mkdir -p and proper chmod permissions (755/644).
+- Added root privilege validation (EUID check) to enforce secure script execution.

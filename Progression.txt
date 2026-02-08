@@ -137,3 +137,12 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 - Implemented OS compatibility check using /etc/os-release with source loading.
 - Automated log directory creation (/var/log/monitor) with mkdir -p and proper chmod permissions (755/644).
 - Added root privilege validation (EUID check) to enforce secure script execution.
+
+=== Project: Linux Resource Monitor - Slack Integration (Issue #7) ===
+- Integrated Slack Webhook for automated alerting via curl POST requests with JSON payloads.
+- Implemented secure secrets management using .env file with .gitignore protection.
+- Created send_slack_alert() function with environment variable validation.
+
+=== Project: Linux Resource Monitor - Persistence & Log Management (Issue #8) ===
+- Automated Crontab entry creation via setup.sh for hourly monitor execution.
+- Configured Log Rotation (logrotate) with weekly rotation, 4-week retention, and compression.

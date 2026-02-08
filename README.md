@@ -8,6 +8,22 @@ I treat my learning process as a professional project. This repository isn't jus
 * **Agile Learning:** Managed via Jira with full GitHub integration.
 * **Professional Standards:** Implementing CI/CD, Linting, and Testing from day one.
 
+## 🛠 Management & Engineering Standards
+I manage this roadmap like a production-grade R&D project. Just like configuring an **SSH Key**, there is no room for "almost." Every task is documented and verified to ensure 100% operational readiness.
+
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>Agile Project Management (Jira)</b><br>
+      <img src="assets/jira-screenshot.png" width="100%">
+    </td>
+    <td width="50%" align="center">
+      <b>Git Methodology (Issues & Labels)</b><br>
+      <img src="assets/github-issues-screenshot.png" width="100%">
+    </td>
+  </tr>
+</table>
+
 ## 🛠 Tech Stack & Ecosystem Integration
 * **Project Management:** [Jira](https://the-daniel-malka.atlassian.net/jira) (Scrum methodology)
 * **CI/CD Pipeline:** GitHub Actions (Automated Test & Lint)
@@ -17,6 +33,7 @@ I treat my learning process as a professional project. This repository isn't jus
 ## 📈 Progress Tracking
 I maintain full transparency of my growth:
 * **[Daily Progression Log](./Progression.txt):** What I implemented today.
-* **[LINKDIN](https://www.linkedin.com/in/daniel-malkaa/)
+* **[LinkedIn](https://www.linkedin.com/in/daniel-malkaa/)**
+
 ---
 *Developed by Daniel Malka - Focused on mastering DevOps through hands-on infrastructure engineering.*

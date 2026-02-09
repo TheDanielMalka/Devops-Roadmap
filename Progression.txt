@@ -146,3 +146,9 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 === Project: Linux Resource Monitor - Persistence & Log Management (Issue #8) ===
 - Automated Crontab entry creation via setup.sh for hourly monitor execution.
 - Configured Log Rotation (logrotate) with weekly rotation, 4-week retention, and compression.
+
+09/02/2026
+
+-Python exam in 2 days a little bit focused on that 
+-Made the usuall kahoot on projects each and all the roadmap 
+-Need to add some features to the monitor project + work on the MLL on taskmanager

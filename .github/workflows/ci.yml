@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install flake8 pytest mypy
-    - name: Lint and Type Check
+    - name: Quality Checks
       run: |
         flake8 SPRINT1/ --count --select=E9,F63,F7,F82 --show-source --statistics
         mypy SPRINT1/
@@ -24,17 +24,31 @@ jobs:
       run: |
         pytest SPRINT1/test/
 
-  auto-assign:
+  sync-and-assign:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+      issues: read
     steps:
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.addAssignees({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              assignees: [context.payload.sender.login]
-            })
+            const prNumber = context.issue.number;
+            const repo = { owner: context.repo.owner, repo: context.repo.repo };
+            
+            // 1. Auto-assign the PR opener
+            await github.rest.issues.addAssignees({ ...repo, issue_number: prNumber, assignees: [context.payload.sender.login] });
+
+            // 2. Sync Labels and Milestone from linked Issue
+            const body = context.payload.pull_request.body || "";
+            const match = body.match(/(?:fixes|closes|relates|ref|#)(\d+)/i);
+            if (match) {
+              const issueNumber = match[1];
+              const issue = await github.rest.issues.get({ ...repo, issue_number: issueNumber });
+              if (issue.data.labels.length > 0) {
+                await github.rest.issues.addLabels({ ...repo, issue_number: prNumber, labels: issue.data.labels.map(l => l.name) });
+              }
+              if (issue.data.milestone) {
+                await github.rest.issues.update({ ...repo, issue_number: prNumber, milestone: issue.data.milestone.number });
+              }
+            }

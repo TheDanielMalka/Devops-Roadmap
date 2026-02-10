@@ -7,23 +7,34 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
-
     - name: Install dependencies
       run: |
-        pip install flake8 pytest
-
-    - name: Lint with flake8
+        pip install flake8 pytest mypy
+    - name: Lint and Type Check
       run: |
         flake8 SPRINT1/ --count --select=E9,F63,F7,F82 --show-source --statistics
-
+        mypy SPRINT1/
     - name: Run tests
       run: |
         pytest SPRINT1/test/
+
+  auto-assign:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              assignees: [context.payload.sender.login]
+            })

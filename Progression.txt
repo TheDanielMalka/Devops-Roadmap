@@ -152,3 +152,24 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 -Python exam in 2 days a little bit focused on that 
 -Made the usuall kahoot on projects each and all the roadmap 
 -Need to add some features to the monitor project + work on the MLL on taskmanager
+
+10/02/2026
+
+=== Issue #21: Log Management (COMPLETED) ===
+- System Logs: syslog, auth.log, kern.log, dmesg - hands-on exploration
+- Journalctl: filtering by service (-u), time (--since), severity (-p err), kernel (-k)
+- Log Rotation: completed via Monitor project Issue #8
+
+=== Issue #20: Network Monitoring (COMPLETED) ===
+- iftop: per-connection bandwidth monitoring
+- nload: total interface traffic overview
+
+=== Issue #17: Linux File System & Permissions (IN PROGRESS) ===
+- FHS: full directory structure review (/bin, /etc, /var, /home, /proc, /dev, etc.)
+- Special Permissions: SUID, SGID, Sticky Bit
+- Mounting & Storage: lsblk, df -h, mount/umount, SWAP, tmpfs
+- Remaining: Mounting practice (Thursday)
+
+=== Infra ===
+- Connected WSL SSH to GitHub (copied Windows keys to WSL)
+- Updated GitHub Labels: Type + Sub-labels on all Issues/PRs

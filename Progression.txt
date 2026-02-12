@@ -173,3 +173,14 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 === Infra ===
 - Connected WSL SSH to GitHub (copied Windows keys to WSL)
 - Updated GitHub Labels: Type + Sub-labels on all Issues/PRs
+
+11/02/2026
+- Project Arena: Created 57 Issues across 10 Milestones with Labels, Sub-labels and Subtasks
+- Project Arena: Setup Jira Space (PA) with 10 Sprints
+- Project Arena: Connected GitHub ↔ Jira Smart Commits (PA-X)
+- Project Arena: Fixed CI pipeline (placeholder test)
+- Fixed sync-tasks script pagination (per_page=100)
+
+12/02/2026
+- Issue #17: Completed Mounting & Storage Basics (last subtask)
+- Issue #17: CLOSED - Sprint 2 complete

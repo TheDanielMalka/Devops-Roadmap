@@ -29,6 +29,16 @@ I manage this roadmap like a production-grade R&D project. Just like configuring
 * **CI/CD Pipeline:** GitHub Actions (Automated Test & Lint)
 * **Environment & Config:** NPM & Python
 * **Source Control:** Git (Trunk-based workflow)
+* Termux when pc dosent work u make something else work
+
+ <table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>Git Methodology (Issues & Labels)</b><br>
+      <img src="assets/Screenshot_20260215_132902_Termux.jpg" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## 📈 Progress Tracking
 I maintain full transparency of my growth:

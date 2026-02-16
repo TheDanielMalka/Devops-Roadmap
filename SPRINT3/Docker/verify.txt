@@ -1,0 +1,1 @@
+Docker verified on Codespaces using hello-world image.

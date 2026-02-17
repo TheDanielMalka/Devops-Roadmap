@@ -1,0 +1,122 @@
+========================================
+Dev Environment Installation Checklist
+========================================
+
+Target Environment: WSL (Ubuntu)
+Purpose: Full DevOps + Node.js + Python + Docker + Nginx + Git + VSCode setup
+========================================
+
+
+==========================
+1. Update System Packages
+==========================
+sudo apt update && sudo apt upgrade -y
+
+
+==========================
+2. Install Git
+==========================
+sudo apt install git -y
+git --version
+
+
+==========================
+3. Install Node.js + npm
+==========================
+sudo apt install nodejs npm -y
+node -v
+npm -v
+
+
+==========================
+4. Install Global Node Tools
+==========================
+sudo npm install -g nodemon
+sudo npm install -g express
+
+(בפרויקט עצמו תריץ:)
+npm install express
+npm install --save-dev nodemon
+
+
+==========================
+5. Install JavaScript Runtime (Node = JS)
+==========================
+(כבר מותקן דרך Node.js)
+(אין צורך בהתקנה נוספת)
+
+
+==========================
+6. Install Python + Flask
+==========================
+sudo apt install python3 python3-pip -y
+pip3 install flask
+
+
+==========================
+7. Install Nginx
+==========================
+sudo apt install nginx -y
+sudo systemctl status nginx
+
+
+==========================
+8. Install Docker (Linux Engine)
+==========================
+sudo apt install docker.io -y
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker $USER
+(Logout + Login required)
+
+
+==========================
+9. Install Docker Desktop (Windows)
+==========================
+- Download from: https://www.docker.com/products/docker-desktop/
+- Enable WSL2 backend
+- Connect Ubuntu distro to Docker Desktop
+
+
+==========================
+10. Install VS Code
+==========================
+(Windows side)
+- Download: https://code.visualstudio.com/
+- Install "Remote - WSL" extension
+- Open WSL folder directly from VS Code
+
+
+==========================
+11. Install GitHub Desktop
+==========================
+(Windows side)
+- Download: https://desktop.github.com/
+==========================
+
+
+==========================
+node -v
+python3 --version
+nginx -v
+docker --version
+git --version
+pip3 --version
+npm -v
+14. Verify Everything
+==========================
+sudo apt install htop -y
+sudo apt install build-essential -y
+sudo apt install net-tools -y
+sudo apt install curl -y
+==========================
+==========================
+13. Optional Useful Tools
+
+
+- Microsoft Store → WhatsApp Desktop
+==========================
+(Windows side)
+12. Install WhatsApp Desktop
+- Connect to GitHub account
+- Clone your repo into WSL path if needed

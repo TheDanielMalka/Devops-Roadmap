@@ -193,3 +193,25 @@ Done with First Sprint - Tommorow Starting New Sprinit 01/02/2026
 - Re‑established Git, GitHub, Jira Smart‑Commits, and local workspace structure.
 - Resumed Arena Project progression and continued aligning with Nana’s DevOps Roadmap.
 - Validated workflow consistency across devices to ensure zero‑downtime learning and development.
+
+18/02/2026
+
+Issue #52: Docker Concepts & Architecture (COMPLETED)
+- Problem Docker solves: "works on my machine" - packages app + dependencies in one container
+- Container vs VM: Container shares host Kernel (lightweight, MBs, seconds to start) vs VM runs full OS (heavy, GBs, minutes)
+- Docker Engine 3 parts:
+  - Client: CLI commands in terminal (docker run, docker ps)
+  - Daemon (dockerd): runs in background, does all the work (pull, run, manage)
+  - Registry (Docker Hub): online storage for ready-made images (nginx, python, postgres)
+- Flow: You type command → Client sends to Daemon → Daemon checks locally → pulls from Registry if missing → runs container
+- Docker Desktop: installs Client + Daemon + GUI together, uses WSL2 for Daemon
+- Image = blueprint (read-only template), Container = running instance (can run multiple from same image)
+- Installed Docker on WSL2, verified with docker run hello-world
+
+Infra:
+- Closed Sprint 2 (100%, 28/28 issues, 26 SP)
+- Created Sprint 2 Report (Word doc)
+- Setup Sprint 3: Milestone + 10 Issues + Labels (Docker: Images/Volumes/Networking/Compose/Registry/Dockerfile)
+- Setup Jira Sprint 3: SCRUM-32 to SCRUM-41
+- Fixed sync-tasks pagination (per_page=100)
+- Project Arena: Closed PA-6 (Jira & GitHub Integration)

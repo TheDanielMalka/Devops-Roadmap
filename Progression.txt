@@ -215,3 +215,21 @@ Infra:
 - Setup Jira Sprint 3: SCRUM-32 to SCRUM-41
 - Fixed sync-tasks pagination (per_page=100)
 - Project Arena: Closed PA-6 (Jira & GitHub Integration)
+
+
+19/02/2026
+
+
+Issue #53: Running & Inspecting Containers (COMPLETED)
+- docker run: pulls image if missing, creates and starts container
+- Detached mode (-d): runs container in background, frees terminal
+- docker ps: shows running containers. ps -a shows all including stopped
+- docker logs: view container output, first thing to check when debugging
+- docker exec -it <name> bash: enter container shell, temporary access for debugging
+- docker stop: graceful shutdown. docker start: restart stopped container
+- docker rm: delete stopped container. rm -f: force stop + delete
+- --rm flag: auto-delete container when it stops
+- Port mapping (-p 8080:80): maps host port to container port, required for external access
+- Multiple containers can use same internal port, each gets unique host port
+- docker inspect: full container details (state, network, config, ports)
+- Container isolation: closed by default, -p opens specific ports to outside

@@ -233,3 +233,14 @@ Issue #53: Running & Inspecting Containers (COMPLETED)
 - Multiple containers can use same internal port, each gets unique host port
 - docker inspect: full container details (state, network, config, ports)
 - Container isolation: closed by default, -p opens specific ports to outside
+
+
+Issue #54: Docker Images (COMPLETED)
+- Image = read-only blueprint, Container = running instance. One image can create many containers
+- docker images (list), docker pull (download), docker rmi (delete). rmi has 'i' to distinguish from rm (containers)
+- Tags: always use specific version in production, latest can change and break things
+- Layers & Caching: images share layers to save space, pull skips download if image exists locally
+
+Issue #55: Docker Networking (IN PROGRESS)
+- Understand Docker default networks (bridge, host, none)
+- docker network ls / create: list networks and create custom bridge network

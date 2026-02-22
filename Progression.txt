@@ -253,3 +253,26 @@ SPRINT3/docker-networking-notes.md
 
 2nd Docker Sprint Week. moving on to Docker Volumes 
 
+Issue #56: Docker Volumes & Data Persistence (COMPLETED)
+- Containers lose all data when removed - proved by creating file, deleting container, new container = gone
+- Named Volume: Docker manages folder, portable (same command works everywhere), data survives container deletion
+- Bind Mount: maps host folder to container, syncs both ways in real time, good for dev but not portable (path must exist)
+- tmpfs: stored in RAM only, deleted when container stops, for temporary/sensitive data
+- Difference: Named Volume = Docker manages, Bind Mount = you manage. Both persist data, only portability differs
+- Practical: Postgres with pgdata volume, created table + inserted data, deleted container, new container = data survived
+- Volume is local only - other machines start with empty volume, not meant for sharing data between machines
+
+Issue #57: Writing Dockerfiles (COMPLETED)
+- Dockerfile = recipe for building custom image, line by line instructions
+- FROM: base image (python:3.11-slim). Always use specific version not latest
+- WORKDIR: sets working directory inside image, creates if not exists
+- COPY: copies files from project folder into image. Only sees files in Dockerfile's directory
+- Two COPYs pattern: copy requirements first, install, then copy code - saves rebuild time with caching
+- RUN: executes commands during build (pip install, mkdir). Each RUN = new layer. Combine with &&
+- ENV: sets environment variables baked into image. Like -e flag but permanent
+- EXPOSE: documentation only, does not open port. -p flag actually opens ports
+- CMD: default command when container starts, can be overridden. ENTRYPOINT: fixed, cannot override
+- docker build -t <name> . builds image. -t names image, dot = current directory
+- -t = name for image (build), --name = name for container (run)
+- Dockerized TaskManager: built image, ran container, added volume for data persistence
+- .dockerignore works like .gitignore - excludes files from image Opus 4.6

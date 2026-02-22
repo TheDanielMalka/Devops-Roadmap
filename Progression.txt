@@ -246,3 +246,10 @@ network ls / create: list networks and create custom bridge network - Connect co
 verify isolation - Container DNS resolution: verified that containers resolve each other by name - Practical: 
 ping (L3 connectivity) vs curl (L7 application response) - Documented findings in 
 SPRINT3/docker-networking-notes.md
+
+
+22/02/2026
+
+
+2nd Docker Sprint Week. moving on to Docker Volumes 
+

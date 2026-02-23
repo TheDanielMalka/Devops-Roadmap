@@ -1,7 +1,7 @@
 21-01-2026
 
 
-Git → GitHub → Jira Workflow : 
+Git → GitHub → Jira Workflow: 
 
 Smart Commits ✅
 Jira Sync ✅

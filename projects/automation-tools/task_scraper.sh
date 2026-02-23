@@ -26,7 +26,7 @@ fi
 for REPO in $REPO_LIST; do
     log_message "Scanning $REPO..."
     
-    ISSUE_LIST=$(gh issue list --repo "$REPO" --state open --json number --jq '.[].number' 2>/dev/null)
+    ISSUE_LIST=$(gh issue list --repo "$REPO" --state open --limit 1000 --json number --jq '.[].number' 2>/dev/null)
     
     if [ ! -z "$ISSUE_LIST" ]; then
         echo "--------------------------" >> $OUTPUT_FILE

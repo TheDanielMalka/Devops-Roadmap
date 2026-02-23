@@ -276,3 +276,11 @@ Issue #57: Writing Dockerfiles (COMPLETED)
 - -t = name for image (build), --name = name for container (run)
 - Dockerized TaskManager: built image, ran container, added volume for data persistence
 - .dockerignore works like .gitignore - excludes files from image Opus 4.6
+
+23/02/2026
+
+Issue #58: Docker Compose (COMPLETED)
+- Compose = one YAML file replaces multiple manual docker run commands, one command starts everything
+- docker-compose.yml structure: services (containers), volumes, networks. Compose auto-creates network for all services
+- docker compose up -d (start all), down (stop + remove containers/network, keeps volumes), ps (status), logs (output)
+- depends_on: controls startup order (db before app). env_file: loads variables from .env file (passwords not exposed in compose)

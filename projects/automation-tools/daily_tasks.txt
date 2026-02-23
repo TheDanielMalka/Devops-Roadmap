@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Report Date: Wed Feb 18 11:57:57 AM IST 2026
+=======
+Report Date: Wed Feb 18 13:59:21 IST 2026
+>>>>>>> 2a40df7 ( SCRUM-38 #DONE #COMMENT #time 1h 'docs: Docker Compose concepts & practical setup - Learned docker-compose.yml structure (services, volumes, networks) - Practiced up/down/ps/logs commands - Tested service communication and depends_on - Used env_file for environment variables - Ran app + Postgres multi-container setup' Relates #58)
 ==========================
 --------------------------
 REPOSITORY: TheDanielMalka/DevOps-Roadmap-
@@ -314,3 +318,173 @@ REPOSITORY: TheDanielMalka/Project-Arena
 - [ ] Review access control (only Oracle can resolve)
 - [ ] Document findings and fixes
 
+<<<<<<< HEAD
+=======
+  From Issue #28:
+- [ ] Create src/contract/escrow_client.py
+- [ ] Implement deposit trigger from backend
+- [ ] Implement resolve trigger from Oracle
+- [ ] Listen for contract events (Deposited, Resolved, Withdrawn)
+- [ ] Write integration tests with testnet
+
+  From Issue #27:
+- [ ] Configure Hardhat/Truffle for testnet deployment
+- [ ] Deploy contract to BSC Testnet
+- [ ] Verify contract on BscScan
+- [ ] Test deposit and withdrawal on testnet
+- [ ] Document deployment process
+
+  From Issue #26:
+- [ ] Create contracts/Escrow.sol
+- [ ] Implement deposit function with player validation
+- [ ] Implement resolve function (only callable by Oracle)
+- [ ] Implement winner-takes-all payout logic
+- [ ] Implement timeout/rage-quit forfeit mechanism
+- [ ] Write Solidity unit tests
+
+  From Issue #25:
+- [ ] Define contract structure (players, amounts, match_id, state)
+- [ ] Design state machine (OPEN → LOCKED → RESOLVED → PAID)
+- [ ] Define functions: deposit(), resolve(), withdraw(), timeout()
+- [ ] Document contract logic in /docs
+- [ ] Peer review contract design
+
+  From Issue #24:
+- [ ] Create src/wallet/fee_engine.py
+- [ ] Implement configurable fee percentage (default 10%)
+- [ ] Calculate fee on every payout
+- [ ] Route fees to platform wallet
+- [ ] Log all fee deductions in ledger
+- [ ] Write tests for fee calculation accuracy
+
+  From Issue #23:
+- [ ] Research WalletConnect v2 SDK
+- [ ] Implement wallet connection flow
+- [ ] Verify wallet ownership via signature
+- [ ] Store verified wallet address in player profile
+- [ ] Write integration tests
+
+  From Issue #22:
+- [ ] Create src/wallet/ledger.py
+- [ ] Log every transaction (deposits, payouts, fees)
+- [ ] Implement ledger query by player, date, match_id
+- [ ] Export ledger to CSV/JSON
+- [ ] Write tests for ledger accuracy
+
+  From Issue #21:
+- [ ] Implement balance check function
+- [ ] Implement send_payment function (USDT)
+- [ ] Add transaction logging (amount, to, from, timestamp, tx_hash)
+- [ ] Handle insufficient balance errors
+- [ ] Implement retry logic for failed transactions
+- [ ] Write tests with mocked transactions
+
+  From Issue #20:
+- [ ] Create src/wallet/binance_client.py
+- [ ] Implement API key authentication via ccxt
+- [ ] Test connection and balance check
+- [ ] Handle API rate limits and errors
+- [ ] Write unit tests with mocked API responses
+
+  From Issue #19:
+- [ ] Implement JSON file-based persistence
+- [ ] Add auto-save on every change
+- [ ] Add backup mechanism (daily snapshots)
+- [ ] Encrypt sensitive fields (wallet addresses)
+- [ ] Write tests for persistence and recovery
+
+  From Issue #18:
+- [ ] Cross-reference wallet address with registered Steam ID
+- [ ] Verify Steam account is not banned
+- [ ] Check daily match limit not exceeded
+- [ ] Return verification status (approved/rejected + reason)
+- [ ] Write tests for edge cases
+
+  From Issue #17:
+- [ ] Create registration endpoint/function
+- [ ] Validate wallet address format (Ethereum/BSC)
+- [ ] Validate Steam ID exists and is public
+- [ ] Link wallet to Steam ID in database
+- [ ] Send confirmation to player
+- [ ] Write integration tests
+
+  From Issue #16:
+- [ ] Implement one-wallet-per-steam-id enforcement
+- [ ] Detect duplicate wallet registrations
+- [ ] Add IP-based fingerprinting (optional)
+- [ ] Create blacklist mechanism for banned players
+- [ ] Write tests for smurf detection scenarios
+
+  From Issue #15:
+- [ ] Create src/identity/database.py
+- [ ] Design JSON schema: wallet_address ↔ steam_id ↔ player_name
+- [ ] Implement CRUD operations (add, get, update, delete player)
+- [ ] Add data validation (wallet format, Steam ID format)
+- [ ] Write unit tests for all CRUD operations
+
+  From Issue #14:
+- [ ] Create structured logging with timestamps
+- [ ] Log every detection attempt with confidence score
+- [ ] Log confirmed victories with player IDs
+- [ ] Save screenshot evidence on confirmed detections
+- [ ] Add log rotation for vision logs
+
+  From Issue #13:
+- [ ] Create src/vision/engine.py as main orchestrator
+- [ ] Implement detection loop (capture → preprocess → match → extract IDs)
+- [ ] Add state machine (WAITING → DETECTED → CONFIRMED → REPORTED)
+- [ ] Add cooldown period between detections
+- [ ] Implement confidence threshold configuration
+- [ ] Integration tests for full pipeline
+
+  From Issue #12:
+- [ ] Implement grayscale conversion before matching
+- [ ] Add Gaussian blur for noise reduction
+- [ ] Implement edge detection as alternative matching method
+- [ ] Benchmark processing time per frame
+- [ ] Optimize for < 500ms per detection cycle
+
+  From Issue #11:
+- [ ] Create /assets/templates directory
+- [ ] Collect 20+ victory screen screenshots at different resolutions
+- [ ] Collect 20+ defeat screen screenshots
+- [ ] Label and organize by resolution
+- [ ] Create dataset README with naming convention
+
+  From Issue #10:
+- [ ] Create src/vision/ocr.py
+- [ ] Implement text extraction from scoreboard region
+- [ ] Parse and validate Steam ID format
+- [ ] Handle OCR noise and error correction
+- [ ] Write unit tests with sample scoreboard images
+
+  From Issue #9:
+- [ ] Create src/vision/matcher.py
+- [ ] Collect victory/defeat template images for CS2
+- [ ] Implement cv2.matchTemplate with confidence threshold
+- [ ] Handle different resolutions and scaling
+- [ ] Add logging for match attempts and confidence scores
+- [ ] Write unit tests with sample images
+
+  From Issue #8:
+- [ ] Create src/vision/capture.py
+- [ ] Implement screenshot function using pyautogui
+- [ ] Configure capture interval (every X seconds)
+- [ ] Add region-of-interest (ROI) cropping for scoreboard area
+- [ ] Handle multi-monitor setups
+- [ ] Write unit tests for capture module
+
+  From Issue #6:
+- [ ] Create .env structure for all secrets (Binance API, wallet keys, SSH paths)
+- [ ] Add .env to .gitignore
+- [ ] Create config loader module (src/config.py)
+- [ ] Validate all required env vars on startup
+- [ ] Document environment setup in README
+
+  From Issue #5:
+- [ ] Generate ED25519 key pair for project
+- [ ] Configure ~/.ssh/config for project hosts
+- [ ] Document key exchange process
+- [ ] Setup SSH authentication for deployment server
+
+>>>>>>> 2a40df7 ( SCRUM-38 #DONE #COMMENT #time 1h 'docs: Docker Compose concepts & practical setup - Learned docker-compose.yml structure (services, volumes, networks) - Practiced up/down/ps/logs commands - Tested service communication and depends_on - Used env_file for environment variables - Ran app + Postgres multi-container setup' Relates #58)

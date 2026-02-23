@@ -1,0 +1,316 @@
+Report Date: Wed Feb 18 11:57:57 AM IST 2026
+==========================
+--------------------------
+REPOSITORY: TheDanielMalka/DevOps-Roadmap-
+--------------------------
+  From Issue #61:
+- [ ] Complete Kahoot quiz (100 questions, hard)
+- [ ] Review all Sprint 3 notes
+- [ ] Update Progression.txt
+- [ ] Generate Sprint 3 Report
+
+  From Issue #60:
+- [ ] Write Dockerfile for linux-resource-monitor
+- [ ]  Write Dockerfile for Project Arena (basic structure)
+- [ ]  Create docker-compose.yml for multi-service setup
+- [ ]  Test build and run locally
+- [ ]  Push images to Docker Hub
+- [ ]  Document process in SPRINT3/dockerize-projects-notes.md
+
+  From Issue #59:
+- [ ] Understand Docker Hub as public registry
+- [ ]  docker login - authenticate to Docker Hub
+- [ ]  docker tag - tag image for push
+- [ ]  docker push - upload image to registry
+- [ ]  docker pull from own repository
+- [ ]  Understand private registries concept
+- [ ]  Document in SPRINT3/docker-registry-notes.md
+
+  From Issue #58:
+- [ ] Understand why Compose exists (multi-container apps)
+- [ ]  docker-compose.yml structure (services, networks, volumes)
+- [ ]  docker compose up / docker compose down
+- [ ]  docker compose ps / docker compose logs
+- [ ]  Define service dependencies (depends_on)
+- [ ]  Environment variables in Compose
+- [ ]  Practical: Run app + database with Compose
+- [ ]  Document in SPRINT3/docker-compose-notes.md
+
+  From Issue #57:
+- [ ] Understand Dockerfile purpose (recipe for building images)
+- [ ]  FROM - base image selection
+- [ ]  COPY / ADD - add files to image
+- [ ]  RUN - execute commands during build
+- [ ]  CMD / ENTRYPOINT - what runs when container starts
+- [ ]  EXPOSE - document ports
+- [ ]  WORKDIR - set working directory
+- [ ]  ENV - environment variables
+- [ ]  Build image: docker build -t myapp .
+- [ ]  Dockerize a simple Python app
+- [ ]  Document in SPRINT3/dockerfile-notes.md
+
+  From Issue #56:
+- [ ] Understand why containers lose data on restart
+- [ ]  Named volumes vs Bind mounts vs tmpfs
+- [ ]  docker volume create / docker volume ls
+- [ ]  Mount volume to container (-v mydata:/app/data)
+- [ ]  Bind mount host directory (-v $(pwd):/app)
+- [ ]  Practical: Run Postgres with persistent data volume
+- [ ]  Verify data survives container restart
+- [ ]  Document in SPRINT3/docker-volumes-notes.md
+
+  From Issue #55:
+- [ ] Understand Docker default networks (bridge, host, none)
+- [ ]  docker network ls - list networks
+- [ ]  docker network create - create custom network
+- [ ]  Connect containers to same network for communication
+- [ ]  Container DNS resolution by name within network
+- [ ]  Practical: Run two containers that talk to each other
+- [ ]  Document in SPRINT3/docker-networking-notes.md
+
+  From Issue #54:
+- [ ] Understand Image vs Container (blueprint vs instance)
+- [ ]  docker images - list local images
+- [ ]  docker pull - download images from Docker Hub
+- [ ]  Image tags and versions (nginx:latest vs nginx:1.25)
+- [ ]  docker rmi - remove images
+- [ ]  Understand image layers and caching
+- [ ]  Document in SPRINT3/docker-images-notes.md
+
+  From Issue #53:
+- [ ] docker run - pull and start containers (nginx, redis, postgres)
+- [ ] docker ps / docker ps -a - list running and stopped containers
+- [ ]  docker logs - view container output
+- [ ]  docker exec -it - enter running container shell
+- [ ]  docker stop / docker start / docker rm - lifecycle management
+- [ ]  docker inspect - detailed container info
+- [ ]  Understand port mapping (-p 8080:80)
+- [ ]  Understand detached mode (-d)
+- [ ]  Document in SPRINT3/docker-containers-notes.md
+
+  From Issue #52:
+- [ ] Docker Engine architecture (Client, Daemon, Registry)
+- [ ] Docker Desktop vs Docker Engine (CLI only)
+- [ ] Install Docker on WSL2
+
+--------------------------
+REPOSITORY: TheDanielMalka/Project-Arena
+--------------------------
+  From Issue #58:
+- [ ] Research gambling/betting regulations in target markets
+- [ ]  Research crypto payment regulations
+- [ ]  Draft Terms of Service
+- [ ]  Draft Privacy Policy
+- [ ]  Consult legal advisor on compliance requirements
+- [ ]  Document regulatory risks and mitigation
+
+  From Issue #57:
+- [ ] Implement maximum daily transaction volume per player
+- [ ] Flag repeated matches between same two players
+- [ ]  Detect intentional losing patterns (one player always loses to same opponent)
+- [ ]  Block suspicious wallet addresses
+- [ ]  Generate AML report for flagged activity
+- [ ]  Write tests for laundering scenarios
+
+  From Issue #56:
+- [ ] Define rage-quit criteria (disconnect during active match)
+- [ ] Implement timeout timer in smart contract
+- [ ] Auto-forfeit funds to remaining player after timeout
+- [ ] Handle edge cases (server crash vs intentional disconnect)
+- [ ] Notify both players of forfeit result
+- [ ] Write tests for timeout scenarios
+
+  From Issue #55:
+- [ ] Create src/identity/disputes.py
+- [ ] Implement dispute submission (player_id, reason, evidence)
+- [ ] Create admin review queue
+- [ ] Implement unban/reinstate flow
+- [ ] Log all dispute decisions with reasoning
+- [ ] Write tests for dispute lifecycle
+
+  From Issue #54:
+- [ ] Document screen-only approach (no game memory access, no DLL injection)
+- [ ] Verify pyautogui doesn't trigger VAC/EAC anti-cheat
+- [ ]  Test on live CS2 with anti-cheat enabled
+- [ ] Implement randomized capture intervals to avoid pattern detection
+- [ ] Create fallback if primary capture method is blocked
+
+  From Issue #53:
+- [ ] Monitor Oracle uptime 24/7
+- [ ] Track transaction success rates
+- [ ] Monitor gas costs
+- [ ] Track user registrations and match count
+- [ ] Create daily status report
+- [ ] Setup escalation alerts for critical failures
+
+  From Issue #52:
+- [ ] Create landing page
+- [ ] Setup Discord/Telegram community
+- [ ] Write announcement post
+- [ ] Invite first 50 beta testers
+- [ ] Setup feedback collection
+
+  From Issue #51:
+- [ ] Write full README with architecture diagram
+- [ ] Create API documentation
+- [ ] Write user guide for players
+- [ ] Document deployment process
+- [ ] Create troubleshooting guide
+
+  From Issue #50:
+- [ ] Dockerize Oracle server
+- [ ] Dockerize frontend
+- [ ] Create docker-compose for full stack
+- [ ] Setup production .env with real keys
+- [ ] Configure SSL/TLS certificates
+- [ ] Setup monitoring and alerting
+
+  From Issue #49:
+- [ ] Final testnet verification
+- [ ] Deploy to Mainnet
+- [ ] Verify contract on Etherscan/BscScan
+- [ ] Update backend to point to mainnet contract
+- [ ] Test with real micro-transaction
+
+  From Issue #48:
+- [ ] Run full Slither + Mythril analysis
+- [ ] External code review (if budget allows)
+- [ ] Test all edge cases on testnet
+- [ ] Verify gas optimization
+- [ ] Sign off on contract security
+
+  From Issue #47:
+- [ ] Audit all SSH keys and their access levels
+- [ ] Verify key rotation policy
+- [ ] Disable root SSH login
+- [ ] Configure fail2ban for brute-force protection
+- [ ] Document SSH security policy
+
+  From Issue #46:
+- [ ] Test Vision Bot bypass with fake images
+- [ ] Test Smart Contract exploit vectors
+- [ ] Test API authentication bypass
+- [ ] Test DDoS resilience
+- [ ] Document all findings and fixes
+
+  From Issue #45:
+- [ ] Create load testing script with locust/pytest
+- [ ] Simulate 100 concurrent match registrations
+- [ ] Measure Oracle response time under load
+- [ ] Measure Smart Contract gas costs at scale
+- [ ] Document performance baseline
+
+  From Issue #44:
+- [ ] Create daily summary report
+- [ ] Include flagged players and reasons
+- [ ] Include financial anomalies
+- [ ] Export as PDF/JSON
+- [ ] Setup automated daily generation
+
+  From Issue #43:
+- [ ] Configure SSH access logging
+- [ ] Monitor authorized_keys changes
+- [ ] Alert on unauthorized SSH attempts
+- [ ] Create tamper-proof log storage
+- [ ] Write audit report template
+
+  From Issue #42:
+- [ ] Research available CS2 match APIs
+- [ ] Compare Vision Engine results with API data
+- [ ] Flag discrepancies between vision and API
+- [ ] Log all cross-reference checks
+- [ ] Write tests for mismatch scenarios
+
+  From Issue #41:
+- [ ] Track win streaks per player
+- [ ] Flag statistically improbable win rates
+- [ ] Detect coordinated matches between same players
+- [ ] Alert admin on suspicious activity
+- [ ] Write tests for anomaly scenarios
+
+  From Issue #40:
+- [ ] Create src/risk/limits.py
+- [ ] Implement daily match limit per player (e.g., 3 high-stakes per day)
+- [ ] Implement daily loss limit
+- [ ] Track cumulative daily spend per player
+- [ ] Block match entry when limit exceeded
+- [ ] Write tests for limit scenarios
+
+  From Issue #39:
+- [ ] Implement responsive breakpoints
+- [ ] Test on mobile, tablet, desktop
+- [ ] Optimize touch interactions
+- [ ] Fix any layout issues on small screens
+
+  From Issue #38:
+- [ ] Create "Join Match" button with bet amount selection ($10/$25/$50)
+- [ ] Show available matches and opponents
+- [ ] Display match status (Waiting, In Progress, Completed)
+- [ ] Show escrow lock confirmation
+- [ ] Real-time updates via WebSocket
+
+  From Issue #37:
+- [ ] Create "Connect Wallet" button with WalletConnect
+- [ ] Show wallet address when connected
+- [ ] Build registration form (link Steam ID to wallet)
+- [ ] Show verification status
+- [ ] Handle wallet disconnect
+
+  From Issue #36:
+- [ ] Create Dashboard page component
+- [ ] Display win/loss ratio with chart
+- [ ] Show total earnings and recent payouts
+- [ ] Show match history with results
+- [ ] Add loading states and error handling
+
+  From Issue #35:
+- [ ] Create React app with Tailwind CSS
+- [ ] Setup routing (Home, Dashboard, Match History, Profile)
+- [ ] Create base layout components (Header, Sidebar, Footer)
+- [ ] Configure API client for backend communication
+- [ ] Setup environment variables for API URLs
+
+  From Issue #34:
+- [ ] Implement /health endpoint
+- [ ] Track response times per request
+- [ ] Add alerting for downtime (Slack webhook)
+- [ ] Log all incoming requests
+- [ ] Create status dashboard data endpoint
+
+  From Issue #33:
+- [ ] Require minimum confidence score from Vision Engine
+- [ ] Implement cooldown between detection and confirmation
+- [ ] Take multiple screenshots for verification
+- [ ] Compare results across verification steps
+- [ ] Reject results that don't meet threshold
+- [ ] Write tests for edge cases
+
+  From Issue #32:
+- [ ] Receive match result from Vision Engine
+- [ ] Verify player identities against database
+- [ ] Cross-check match data for consistency
+- [ ] Submit result to Smart Contract
+- [ ] Log all decisions with evidence
+- [ ] Write tests for decision scenarios
+
+  From Issue #31:
+- [ ] Implement HTTP client in Vision Engine to send results
+- [ ] Add SSH tunnel for secure communication
+- [ ] Implement request signing for authenticity
+- [ ] Add retry logic for failed communications
+- [ ] Write integration tests
+
+  From Issue #30:
+- [ ] Create src/oracle/server.py using FastAPI
+- [ ] Define API endpoints: /verify, /report_result, /status
+- [ ] Implement authentication (API keys for authorized bots only)
+- [ ] Add request validation and error handling
+- [ ] Write API documentation
+
+  From Issue #29:
+- [ ] Run Slither static analysis
+- [ ] Check for reentrancy vulnerabilities
+- [ ] Check for integer overflow/underflow
+- [ ] Review access control (only Oracle can resolve)
+- [ ] Document findings and fixes
+

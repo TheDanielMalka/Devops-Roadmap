@@ -17,7 +17,7 @@ if ! gh auth status >/dev/null 2>&1; then
     exit 1
 fi
 
-REPO_LIST=$(gh repo list --limit 100 --json nameWithOwner --jq '.[].nameWithOwner' 2>/dev/null)
+REPO_LIST=$(gh repo list --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner' 2>/dev/null)
 if [ $? -ne 0 ]; then
     log_message "ERROR: Failed to fetch repository list. Check your network connection."
     exit 1

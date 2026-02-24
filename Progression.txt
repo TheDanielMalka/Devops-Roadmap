@@ -290,3 +290,24 @@ Issue #59: Docker Registry & Repository (COMPLETED)
 - docker login: authenticate to Docker Hub. docker tag: name image as user/repo:tag format
 - docker push: upload image to registry. docker pull: download from registry (also from own repos)
 - Private registries exist (AWS ECR, GCP GCR, GitHub GHCR) - same commands, different address. Used in production for security
+
+24/02/2026
+
+Issue #60: Dockerize DevOps Projects (PARTIAL)
+- Dockerized TaskManager from Issue #57 (Dockerfile + volume + build + run)
+- Dockerfile for linux-resource-monitor completed
+- Remaining items deferred to Project Arena infrastructure phase
+
+Issue #61: Sprint 3 Review & Assessment (COMPLETED)
+- Docker Kahoot (Issues 52-59): 90%+ score
+- Docker Volumes & Dockerfiles Kahoot: 100% (30/30)
+- Docker Compose Kahoot: 80% (16/20)
+- Updated Progression.txt
+- Generated Sprint 3 Report
+- Closed Sprint 3 in Jira and GitHub Milestone
+
+Sprint 3 Summary:
+- 10 issues, 8 fully completed, 1 partial, 1 review
+- Topics: Docker concepts, containers, images, networking, volumes, Dockerfiles, Compose, Registry
+- Assessment scores: 80-100% across all topics
+- Sprint closed early - ready for Sprint 4

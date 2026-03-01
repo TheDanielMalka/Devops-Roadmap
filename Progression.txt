@@ -311,3 +311,45 @@ Sprint 3 Summary:
 - Topics: Docker concepts, containers, images, networking, volumes, Dockerfiles, Compose, Registry
 - Assessment scores: 80-100% across all topics
 - Sprint closed early - ready for Sprint 4
+
+25/02/2026
+
+Issue #5: SSH Key Infrastructure (COMPLETED)
+- Generated Ed25519 SSH key pair
+- Created ~/.ssh/config for GitHub
+- Verified connection with ssh -T git@github.com
+- Switched remote from HTTPS to SSH
+
+Issue #6: Environment & Secrets Management (COMPLETED)
+- Created .env with all project secrets
+- Created .env.example template for developers
+- Built src/config.py: loads env vars with python-dotenv, validates required vars
+- Updated README with environment setup instructions
+- Set up Python virtual environment (venv)
+- Installed python-dotenv, updated requirements.txt
+
+28/02/2026
+=====PROJECT-ARENA=========
+Issue #8: Screen Capture Module (COMPLETED)
+- Created src/vision/capture.py with mss, OpenCV, numpy
+- capture_screen(): screenshots with timestamp, saves as PNG
+- crop_roi(): crops region of interest from image
+- capture_loop(): automatic capture every X seconds with optional ROI
+- Multi-monitor support via monitor_num parameter
+- Created tests/test_capture.py with crop and file-not-found tests
+- Updated CI pipeline: Python 3.12, added requirements.txt install
+- Tested capture on Windows PowerShell — working
+- Created PowerShell alias "screenshot" for quick capture
+
+01/03/2026 
+
+Issue #81: Cloud Computing Concepts (COMPLETED)
+- Learned cloud fundamentals: renting servers vs owning hardware
+- IaaS vs PaaS vs SaaS (infrastructure, platform, software as service)
+- Three pillars: Compute, Networking, Storage
+- AWS vs Azure vs GCP comparison, why AWS is most common
+- Created AWS Free Tier account
+- Set up Zero-Spend Budget alert
+- Enabled Tel Aviv region
+- First look at AWS Console: EC2, S3, VPC, IAM
+- Added main services to favorites

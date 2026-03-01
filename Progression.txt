@@ -363,3 +363,15 @@ Issue #82: AWS IAM - Identity & Access Management (COMPLETED)
 - Policies: JSON documents that define allow/deny permissions
 - Enabled MFA on both root and admin accounts
 - Created read-only user, tested permission limits on EC2 launch - blocked as expected
+
+
+Issue #83: AWS VPC - Networking Fundamentals (COMPLETED)
+- VPC = private virtual network in the cloud
+- CIDR 10.0.0.0/16 defines address space (65,536 addresses)
+- Public subnet: servers with external IP, internet accessible
+- Private subnet: no external IP, internal only
+- Internet Gateway: translates internal to external addresses, connects VPC to internet
+- Route Tables: direct traffic - public subnet routes to IGW, private stays internal
+- Security Groups: firewall per server, blocks all inbound by default
+- NACLs: firewall per subnet, stateless (doesn't remember connections)
+- Practical: Created custom "arena-vpc" with public + private subnet, IGW, route tables

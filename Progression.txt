@@ -353,3 +353,13 @@ Issue #81: Cloud Computing Concepts (COMPLETED)
 - Enabled Tel Aviv region
 - First look at AWS Console: EC2, S3, VPC, IAM
 - Added main services to favorites
+
+Issue #82: AWS IAM - Identity & Access Management (COMPLETED)
+- Learned why root account is dangerous and should be locked
+- Created IAM admin user with AdministratorAccess policy
+- Separate login URL for IAM users vs root
+- Created "admins" group, attached admin policy, added admin user
+- IAM concepts: Users (people), Groups (collections), Roles (services)
+- Policies: JSON documents that define allow/deny permissions
+- Enabled MFA on both root and admin accounts
+- Created read-only user, tested permission limits on EC2 launch - blocked as expected

@@ -375,3 +375,17 @@ Issue #83: AWS VPC - Networking Fundamentals (COMPLETED)
 - Security Groups: firewall per server, blocks all inbound by default
 - NACLs: firewall per subnet, stateless (doesn't remember connections)
 - Practical: Created custom "arena-vpc" with public + private subnet, IGW, route tables
+
+Issue #84: AWS EC2 (COMPLETED)
+- Launched t3.micro Ubuntu instance in arena-vpc public subnet
+- Created RSA key pair (Arena.pem) for SSH access
+- Fixed Security Group: opened port 22 to all for SSH, port 80 for HTTP
+- SSH connection working from WSL terminal
+- Created alias "cloud" for quick SSH access
+- Organized SSH keys: moved Arena.pem to ~/.ssh/
+- Generated Ed25519 key on EC2 and connected to GitHub
+- Installed Docker, Python 3.12, python3-venv
+- Cloned Project Arena repo on EC2
+- Created venv and installed all requirements
+- Set up arena/arenaoff aliases on EC2
+- EC2 is running 24/7 on Free Tier (750hrs/month)

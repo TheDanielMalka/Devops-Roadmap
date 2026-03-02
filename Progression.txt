@@ -401,3 +401,12 @@ Issue #9: Template Matching for Victory Detection (IN PROGRESS)
 - Defeat template pending
 - Resolution scaling pending
 - Logging and unit tests pending
+
+============DEVOPS-ROADMAP===============
+Issue #85: AWS S3 - Scalable Storage & IAM Integration (COMPLETED)
+- Understood S3 core concepts: Object storage, Buckets, and Global Namespace
+- Configured AWS CLI locally and authenticated with IAM User access keys
+- Mastered S3 CLI commands: ls, cp, sync, rm
+- Implemented Bucket Policies: Configured public read access (JSON) and Block Public Access
+- Enabled S3 Versioning: Tested "Time Machine" capabilities and Delete Markers
+- Static Website Hosting: Configuring S3 bucket as a web server

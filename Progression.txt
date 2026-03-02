@@ -410,3 +410,10 @@ Issue #85: AWS S3 - Scalable Storage & IAM Integration (COMPLETED)
 - Implemented Bucket Policies: Configured public read access (JSON) and Block Public Access
 - Enabled S3 Versioning: Tested "Time Machine" capabilities and Delete Markers
 - Static Website Hosting: Configuring S3 bucket as a web server
+
+Issue #86: AWS CLI & SDK (COMPLETED)
+- Installed AWS CLI and mastered the command pattern: aws <service> <command>
+- Authenticated using IAM Roles for EC2 (Best Practice) instead of static keys
+- Practical: Managed S3 buckets, uploaded files, and listed resources via CLI
+- Understood EC2 management commands (start/stop/describe)
+- Documented CLI authentication and usage in aws-cli-notes.md

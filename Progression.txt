@@ -418,3 +418,16 @@ Issue #86: AWS CLI & SDK (COMPLETED)
 - Understood EC2 management commands (start/stop/describe)
 - Documented CLI authentication and usage in aws-cli-notes.md
 
+03/03/2026
+
+=======PROJECT-ARENA===========
+Issue #10: OCR for Player ID Extraction (IN PROGRESS)
+- Installed tesseract-ocr on WSL and EC2
+- Created src/vision/ocr.py with full OCR pipeline:
+  - preprocess_image: grayscale, 3x upscale, invert, binary threshold
+  - extract_text: crop region + OCR with pytesseract
+  - extract_player_names: clean and filter raw OCR output
+  - Logger setup (vision.ocr) same pattern as matcher/capture
+- Created test_ocr.py with 3 unit tests (missing file, text extraction, name extraction)
+- Updated requirements.txt with pytesseract
+- Tested on low-res images: partial results. Need full-res screenshots for calibration

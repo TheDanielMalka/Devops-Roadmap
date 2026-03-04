@@ -462,3 +462,16 @@ Architecture Decision: Vision Engine
 - Screenshots per game/resolution: screenshots/{game}/{resolution}/
 - OCR crop coordinates per game/resolution
 - Designed for multi-game support beyond CS2
+
+============DEVOPS-ROADMAP===============
+Issue #87: Deploy Docker on EC2 (COMPLETED)
+- SSH into EC2: working with "cloud" alias
+- Docker and Docker Compose installed on EC2
+- Pulled dunelz/hello-devops:1.0 from Docker Hub
+- Ran nginx container: docker run -d -p 80:80 --name web nginx
+- Accessed nginx welcome page from browser via public IP (16.171.240.251)
+- Created docker-compose.yml with two services: nginx (web) + postgres (db)
+- docker compose up -d: both containers running simultaneously
+- Security Group: port 22 (SSH) and port 80 (HTTP) open to 0.0.0.0/0
+- Learned: Security Group = firewall per server, can be shared across multiple instances
+- Learned: docker compose manages multi-container setup with single command

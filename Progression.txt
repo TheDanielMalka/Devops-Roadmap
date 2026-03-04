@@ -431,3 +431,34 @@ Issue #10: OCR for Player ID Extraction (IN PROGRESS)
 - Created test_ocr.py with 3 unit tests (missing file, text extraction, name extraction)
 - Updated requirements.txt with pytesseract
 - Tested on low-res images: partial results. Need full-res screenshots for calibration
+
+04/03/2026
+
+=======PROJECT-ARENA===========
+Issue #9: Template Matching (UPDATE)
+- Added logging to matcher.py and capture.py (RotatingFileHandler, 500KB, 3 backups)
+- Error handling: missing files return gracefully instead of crashing
+- Created test_matcher.py with 3 unit tests (missing file, match found, match not found)
+- Created test_capture.py with 2 unit tests (crop ROI, file not found)
+- Added __init__.py to src/ and tests/ for module imports
+- Updated CI pipeline (arena.yml): smart test detection per changed file, venv exclusion for flake8/mypy
+
+Issue #10: OCR (UPDATE)
+- Added RotatingFileHandler to ocr.py
+- Fixed test_capture.py: aligned file-not-found test with crop_roi return value (None)
+- Updated CI pipeline: added tesseract-ocr installation for GitHub Actions
+- All 8 tests passing locally and in CI
+
+Issue #14: Vision Engine Logging & Monitoring (IN PROGRESS)
+- Structured logging with timestamps: COMPLETED (all 3 modules)
+- Log detection attempts with confidence: COMPLETED (matcher.py)
+- Log rotation: COMPLETED (RotatingFileHandler 500KB, 3 backups on all modules)
+- Save screenshot evidence: COMPLETED (save_evidence in matcher.py, saves to evidence/)
+- Log confirmed victories with player IDs: PENDING (waiting for OCR with real screenshots)
+
+Architecture Decision: Vision Engine
+- All modules will receive game + resolution parameters
+- Templates per game/resolution: templates/{game}/{resolution}/
+- Screenshots per game/resolution: screenshots/{game}/{resolution}/
+- OCR crop coordinates per game/resolution
+- Designed for multi-game support beyond CS2

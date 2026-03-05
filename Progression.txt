@@ -475,3 +475,28 @@ Issue #87: Deploy Docker on EC2 (COMPLETED)
 - Security Group: port 22 (SSH) and port 80 (HTTP) open to 0.0.0.0/0
 - Learned: Security Group = firewall per server, can be shared across multiple instances
 - Learned: docker compose manages multi-container setup with single command
+
+05/03/2026
+======================Project-ARENA==============================
+Issue #10: OCR for Player ID Extraction (COMPLETED)
+- Steam ID format validation removed - not needed, handled at registration
+- OCR noise filtering completed: removes pipes, special chars, min 3 chars
+- Added invert parameter for light/dark text detection
+- Tested on 1024x819 and 1280x720 screenshots - 5/5 names extracted
+- OCR role redefined: verification only, not primary data source
+- One name match is enough to identify winning team from contract
+
+Issue #9: Template Matching (UPDATE)
+- Algorithm change planned: replace text-based template matching with color detection
+- Victory = green bar in fixed screen position, Defeat = red bar
+- Language-independent: works in any language (VICTORY/ZAFER/ПОБЕДА)
+- Coordinates per game/resolution to be calibrated with real screenshots
+
+Architecture Decision: Match Flow
+- Player registers once: Steam name + Steam ID + wallet address + game account
+- Contract defines teams before match: team A (5 players + wallets) vs team B
+- Capture runs every 5 seconds during match
+- Matcher checks color in scoreboard area: green = victory, red = defeat
+- OCR extracts minimum 1 name to verify which team won
+- Contract releases funds to winning team wallets
+- Console logs not needed - all data comes from registration + OCR + matcher

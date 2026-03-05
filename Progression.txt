@@ -500,3 +500,16 @@ Architecture Decision: Match Flow
 - OCR extracts minimum 1 name to verify which team won
 - Contract releases funds to winning team wallets
 - Console logs not needed - all data comes from registration + OCR + matcher
+
+Issue #9: Template Matching (UPDATE)
+- Added detect_result function: color-based detection using pixel counting
+- Fixed HSV bug: red splits into two ranges (0-10, 170-180), average was wrong, switched to pixel counting
+- Percentage-based region: 12-17% height, 34-68% width - works on any resolution
+- Tested on 3 images: 2 victory (87%, 93% green) + 1 defeat (95% red) - all correct
+- No templates needed, no language dependency
+- match_template kept as backup
+
+Issue #10: OCR (UPDATE)
+- Added percentage-based default region: 85% height, 2-96% width, 6% height
+- Works on any resolution without manual coordinates
+- Tested on 1024x819 and 1280x720 with same percentages - both extracted names correctly

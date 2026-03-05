@@ -513,3 +513,18 @@ Issue #10: OCR (UPDATE)
 - Added percentage-based default region: 85% height, 2-96% width, 6% height
 - Works on any resolution without manual coordinates
 - Tested on 1024x819 and 1280x720 with same percentages - both extracted names correctly
+Issue #9: Template Matching (UPDATE)
+- detect_result fully working: pixel counting for green/red detection
+- Fixed HSV bug: red detection using dual-range pixel counting
+- Tested on 15 images: 3 maps (Nuke, Anubis, Dust2) x 5 resolutions - 100% detection rate
+
+Issue #10: OCR (UPDATE)  
+- Percentage-based region working on all resolutions (800x600 to 1920x1080)
+- Tested on 15 images: all returned player names correctly
+- Minimum 3 accurate names per image across all resolutions
+
+Issue #11: Dataset Collection (IN PROGRESS)
+- Collected 3 victory screenshots from YouTube at 1920x1080 (Nuke, Anubis, Dust2)
+- Generated 5 resolutions per map: 1920x1080, 1280x960, 1280x720, 1024x768, 800x600
+- Total: 15 template images in dataset
+- Still needed: defeat screenshots, more maps

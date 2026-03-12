@@ -653,3 +653,32 @@ Login/Authentication Page (COMPLETED)
 - Forgot Password link
 - "Continue with Google" OAuth button
 - Dark theme with Arena branding
+
+11/03/2026
+
+======================Project-ARENA==============================
+
+fix(client): PermissionError on frozen exe (PR #108)
+- client/main.py: fixed WinError 5 when running as PyInstaller exe
+- Use sys.executable to resolve base dir when frozen, fallback to __file__ in dev
+- Fixes logs/ directory creation failing on packaged build
+
+Issue #12: Benchmark & Performance (PR #109 - noise reduction)
+- matcher.py: Added Gaussian blur preprocessing before template matching
+- ocr.py: Added Gaussian blur to OCR preprocessing pipeline
+- match_template: Added edge-based alternative matching mode (Canny edges)
+- Tests: Added unit tests validating mode selection between standard and edge-based matching
+
+Issue #12: Benchmark & Performance (PR #110 - processing time instrumentation)
+- matcher.py: Added time.perf_counter() measurements to match_template - logs elapsed ms at every exit point
+- ocr.py: Added same instrumentation to extract_text - logs elapsed ms on success and on missing file
+- Tests: Added test_match_template_logs_elapsed_for_missing_image and test_extract_text_logs_elapsed_for_missing_image
+
+12/03/2026
+
+Issue #13: Vision Engine Orchestrator (PR #111)
+- Created engine/src/vision/engine.py - new central orchestration layer
+- VisionEngineConfig dataclass: confidence_threshold=0.8, cooldown_seconds=3
+- VisionEngineOutput dataclass: result, confidence, players, score, template data, accepted flag
+- VisionEngine.process_frame(): runs detect_result + extract_player_names + extract_score + match_template and returns unified VisionEngineOutput
+- accepted=True only when result exists and confidence >= threshold

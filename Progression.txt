@@ -682,3 +682,72 @@ Issue #13: Vision Engine Orchestrator (PR #111)
 - VisionEngineOutput dataclass: result, confidence, players, score, template data, accepted flag
 - VisionEngine.process_frame(): runs detect_result + extract_player_names + extract_score + match_template and returns unified VisionEngineOutput
 - accepted=True only when result exists and confidence >= threshold
+
+15/03/2026
+
+======================Project-ARENA (UI + Frontend Stability)==============================
+
+Issue #35 / #39: Frontend Stability & UX Updates (PR #117/#118/#121)
+- Implemented admin-only visibility and access guard:
+  - Sidebar Admin item shown only to admin role.
+  - /admin route protected with redirect for non-admin users.
+  - user role flow updated in auth store (admin/user role assignment in mock login flow).
+- Added leaderboard quick interaction improvements:
+  - Clickable Top-3 "Quick Stats" behavior.
+  - Inline per-row stats expansion in leaderboard table.
+- Restored missing frontend modules that blocked local startup:
+  - Recreated missing shared lib utilities/imports for stable dev server startup.
+
+16/03/2026
+
+======================Project-ARENA (Legal Pages + Branding Cleanup)==============================
+
+Issue #35 / #39: Legal Content + Navigation Completion (PR #122/#123/#124/#125/#126)
+- Added legal pages and full route linkage:
+  - Responsible Gaming page.
+  - Privacy Policy page.
+  - Terms of Service page.
+- Connected footer legal links and breadcrumb labels to the new routes.
+- Fixed Terms navigation issue by restoring missing route wiring.
+- Expanded Dashboard Live Match cards with openable details:
+  - Match metadata, map/general info, players list, and expanded card state.
+- Removed legacy "Lovable" branding/dependency traces from frontend setup:
+  - Cleaned branding references in app shell/meta/dependency setup.
+
+17/03/2026
+
+======================Project-ARENA (Match Lobby + History + Test Coverage)==============================
+
+Issue #35 / #39: Match Lobby Interaction Upgrades (PR #127/#128 + follow-ups)
+- Added Public Match details overlay on row click:
+  - Shows lobby details with team split, players, empty slots, and direct join action.
+- Updated public matches stake filter behavior:
+  - Selecting a stake now shows only matches for that stake amount.
+- Adjusted full-match UX:
+  - Full matches remain viewable in details overlay.
+  - Join action remains correctly blocked when lobby is not joinable.
+
+Issue #35 / #39: History Page Expansion
+- Added expandable per-match details in Match History cards:
+  - Status, players, mode, winner/summary information.
+  - Team A / Team B roster blocks with empty slot placeholders.
+
+UI Cleanup
+- Removed visible AD SPACE banners from History and Dashboard UI sections.
+
+Testing & Quality Gate Hardening
+- Added UI tests for key flows:
+  - src/test/history.page.test.tsx
+  - src/test/match-lobby.page.test.tsx
+- Test scenarios include:
+  - History search filtering.
+  - History card expand/collapse behavior.
+  - Lobby stake-based filtering.
+  - Full lobby details visibility with disabled join.
+- Stabilized Vitest configuration path resolution in vitest.config.ts
+  so npm run test passes consistently in local/CI paths.
+
+Validation Snapshot (17/03)
+- npm run test ✅
+- npm run lint ✅
+- npm run build ✅

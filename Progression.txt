@@ -751,3 +751,10 @@ Validation Snapshot (17/03)
 - npm run test ✅
 - npm run lint ✅
 - npm run build ✅
+
+19/03/2026
+
+============DEVOPS-ROADMAP===============
+AWS Educate: EC2 & S3 Introductions (COMPLETED)
+- Completed AWS Educate Introduction to EC2 module
+- Completed AWS Educate Introduction to S3 module

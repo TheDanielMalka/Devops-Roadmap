@@ -752,9 +752,41 @@ Validation Snapshot (17/03)
 - npm run lint ✅
 - npm run build ✅
 
-19/03/2026
+18-19/03/2026
 
-============DEVOPS-ROADMAP===============
-AWS Educate: EC2 & S3 Introductions (COMPLETED)
-- Completed AWS Educate Introduction to EC2 module
-- Completed AWS Educate Introduction to S3 module
+======================Project-ARENA (Post 17/03 Hardening + Build Reliability)==============================
+
+Cross-Stack Reliability Hardening (PR: chore/system-verification-hardening)
+- client/build.py hardening:
+  - Added PyInstaller presence check with clear fail-fast message.
+  - Added Windows process cleanup for locked ArenaClient.exe before rebuild (prevents WinError 5 / Access denied).
+- engine/requirements.txt cleanup:
+  - Replaced special Unicode header with plain ASCII header to avoid Windows encoding/pip decode issues.
+- Added full verification automation:
+  - New script: scripts/verify-all.ps1
+  - New npm command: npm run verify:all
+  - Verification chain now covers frontend test/lint/build + engine deps/tests + client deps/build.
+
+Stability Validation (Post-17/03)
+- Frontend: npm run test ✅
+- Frontend: npm run lint ✅
+- Frontend: npm run build ✅
+- Engine: python -m pytest -q engine/tests ✅
+- Client: python build.py --clean / python build.py ✅ (ArenaClient.exe produced successfully)
+- Type consistency check: npx tsc --noEmit ✅
+
+Packaging Flow Alignment (npm-only cleanup)
+- Removed remaining bun-oriented Docker copy pattern:
+  - Dockerfile.frontend: COPY package.json package-lock.json* ./
+  - Removed bun.lock* from frontend image build stage.
+- Confirmed no remaining bun references in project files (excluding node_modules cache content).
+- Re-ran validation after Dockerfile update:
+  - npm run test ✅
+  - npm run lint ✅
+  - npm run build ✅
+  - client build ✅
+
+Git / PR Delivery
+- Opened dedicated branch and commit for reliability hardening.
+- Opened dedicated branch and commit for Docker npm-only cleanup.
+- Both updates prepared as isolated PR flows to keep history clean and reviewable.

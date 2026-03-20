@@ -806,3 +806,64 @@ Today - Vision Engine State Machine Progress
   - low-confidence frame.
 - Added `confirmed_output` to store the final `VisionEngineOutput` for downstream use.
 - Integrated `StateMachine` with `VisionEngineOutput` from `engine.py`.
+
+20/03/2026
+
+======================Project-ARENA (Issue #13 / #14 / #54 Completion)==============================
+
+Issue #13 — State Machine + Full Pipeline (continued from 18-19/03)
+
+Watcher ↔ State Machine Integration
+- Connected `watcher.py` to `StateMachine`:
+  - On each frame: calls `state_machine.update(result)`
+  - On DETECTED: prints detected result + confidence
+  - On CONFIRMED: prints full result + players, calls `mark_reported()`
+- StateMachine prevents duplicate reporting via REPORTED terminal state.
+
+Test Coverage — State Machine (engine/tests/test_state_machine.py)
+- 15 unit tests across 6 test classes:
+  - TestInitialState: starts at WAITING, no confirmed_output
+  - TestDetected: first accepted frame → DETECTED, two consecutive → stays DETECTED
+  - TestConfirmed: three consecutive → CONFIRMED, confirmed_output is set
+  - TestReset: low confidence resets to WAITING, result change resets counter, manual reset works
+  - TestReported: mark_reported after CONFIRMED, REPORTED ignores new frames
+  - TestLogging: caplog assertions for DETECTED / CONFIRMED / WAITING / REPORTED log messages
+
+Integration Tests — Full Pipeline (engine/tests/test_pipeline.py)
+- 7 integration tests using synthetic images (cv2) — CI compatible, no evidence/ files needed:
+  - Victory image accepted by engine ✅
+  - Defeat image accepted by engine ✅
+  - 3 victory frames → CONFIRMED ✅
+  - 3 defeat frames → CONFIRMED ✅
+  - Mixed frames do not confirm ✅
+  - Confirmed → mark_reported → REPORTED ✅
+  - REPORTED ignores further frames ✅
+
+Total test count after Issue #13: 46 tests, all passing ✅
+
+Issue #14 — Vision Engine Logging & Monitoring
+
+- Added player IDs to CONFIRMED log line in `state_machine.py`:
+  - Log now prints: result, confidence %, and players list on CONFIRMED
+- Players list populated from OCR output (`VisionEngineOutput.players`)
+
+Issue #54 — Anti-Cheat Evasion
+
+Randomized Capture Intervals (client/main.py)
+- Added `import random`
+- Replaced fixed `time.sleep(interval)` with jitter in both sleep points inside monitor loop:
+  - `time.sleep(base + random.uniform(-0.5, 0.5))`
+- Applies to both: "no game running" sleep and end-of-loop sleep
+- Per-game intervals locked in `GAME_INTERVALS` dict (CS2: 3s, others: 5s)
+
+Anti-Cheat Compatibility Documentation (client/README.md)
+- Added "Anti-Cheat Compatibility" section documenting screen-only approach:
+  - Uses Windows GDI screen capture via mss — no memory reading, no DLL injection, no kernel hooks
+  - Comparison table: what we do vs. what we never do
+  - Confirmed working on live CS2 with VAC enabled (Deathmatch test)
+  - Fallback capture method deemed unnecessary — mss operates at OS level, not blocked by anti-cheat
+
+Validation Snapshot (20/03)
+- python -m pytest tests/ -v ✅ (46/46 passed)
+- client/dist/ArenaClient.exe built successfully via PowerShell (28.9 MB) ✅
+- main branch clean, all feature branches deleted ✅

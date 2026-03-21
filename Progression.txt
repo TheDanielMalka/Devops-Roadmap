@@ -867,3 +867,45 @@ Validation Snapshot (20/03)
 - python -m pytest tests/ -v ✅ (46/46 passed)
 - client/dist/ArenaClient.exe built successfully via PowerShell (28.9 MB) ✅
 - main branch clean, all feature branches deleted ✅
+
+22/03/2026
+
+======================Project-ARENA (M3: Identity Mapping — Anti-Smurf)==============================
+
+Issue #15 — Player Database Schema
+
+- Created `engine/src/identity/database.py`:
+  - SQLite-backed PlayerDatabase (local file, no server needed)
+  - Player schema: wallet_address (primary key), steam_id (unique), steam_display_name, game
+  - Full CRUD: add, get, get_by_steam_id, update, delete
+  - Blacklist table: blacklist(), unblacklist(), is_blacklisted()
+  - Validation: wallet must be 0x + 40 hex chars, Steam ID must be exactly 17 digits
+- Added 18 unit tests in `engine/tests/test_database.py` covering all CRUD + validation
+
+Issue #16 — Smurf Detection Logic
+
+- Created `engine/src/identity/smurf_detector.py`:
+  - SmurfDetector class with validate(wallet, steam_id) method
+  - Blocks registration if wallet is blacklisted
+  - Blocks registration if Steam ID already registered under a different wallet (one-wallet-per-steam-id)
+  - Raises SmurfDetected exception with clear message
+- Added tests in `engine/tests/test_smurf_detector.py`
+
+Issue #17 — Player Registration Flow
+
+- Created `engine/src/identity/registration.py`:
+  - register_player() function — single entry point for all registration logic
+  - Validates wallet + Steam ID format
+  - Runs smurf and blacklist checks via SmurfDetector
+  - Saves to PlayerDatabase on success
+  - Returns RegistrationResult(success, message) — confirmation for UI
+- Renamed player_name to steam_display_name across all files:
+  - Clarifies this is the exact name OCR reads from the CS2 scoreboard
+- Added 9 integration tests in `engine/tests/test_registration_integration.py`
+- Skipped (pending Steam API key from Valve):
+  - Validate Steam ID exists and is public
+  - Validate Steam name matches Steam ID via Steam API
+
+Validation Snapshot (22/03)
+- python -m pytest tests/ -v (91/91 passed) ✅
+- main branch clean, all feature branches deleted ✅

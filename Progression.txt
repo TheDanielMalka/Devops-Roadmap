@@ -956,3 +956,46 @@ Issue #18 — Identity Verification on Match Start
 Validation Snapshot (22/03 — end of session)
 - python -m pytest tests/ -v (all passing) ✅
 - main branch clean, all feature branches deleted ✅
+
+─────────────────────────────────────────────────────────────
+M4: Web3 Wallet Integration
+─────────────────────────────────────────────────────────────
+
+Issue #20 — Binance API Connection
+
+- Created `engine/src/wallet/` module (new package)
+- Created `engine/src/wallet/binance_client.py`:
+  - BinanceClient wraps ccxt.binance with API key auth (BINANCE_API_KEY / BINANCE_SECRET from env)
+  - ping() — checks connectivity
+  - get_balance(asset) — returns free balance for given asset (default: USDT)
+  - get_price(symbol) — returns last traded price (e.g. BTC/USDT)
+  - get_all_balances() — returns all assets with non-zero free balance
+  - Auto-retry up to 3x on RateLimitExceeded with backoff
+  - Raises BinanceClientError on auth / network / exchange failures
+- Added ccxt==4.5.* to engine/requirements.txt
+- Added 16 unit tests in `engine/tests/test_binance_client.py` (fully mocked, no real keys needed)
+
+Issue #21 — Wallet Balance & Transaction Module
+
+- Created `engine/src/wallet/wallet_manager.py`:
+  - WalletManager wraps BinanceClient and adds business logic
+  - check_balance(required, asset) — validates funds before payout, raises InsufficientBalanceError
+  - send_payment(to_address, amount, asset) — sends USDT via Binance withdraw:
+    1. Validates balance
+    2. Executes withdraw with retry logic (3 attempts)
+    3. Logs transaction
+  - Transaction dataclass: amount, to_address, from_address, asset, timestamp, tx_hash, status
+  - get_transaction_log() — returns copy of all transactions (ready to connect to Issue #22 ledger)
+  - Raises TransactionError after exhausting retries
+- Added 17 unit tests in `engine/tests/test_wallet_manager.py` (fully mocked)
+
+Environment Cleanup (22/03)
+- Fixed .vscode/settings.json: replaced ${workspaceFolder} with absolute path (VS Code warning resolved)
+- Verified all 3 environments are clean and complete:
+  - WSL engine .venv: all engine deps including ccxt, PyJWT, SQLAlchemy ✅
+  - Windows winvenv (VS Code): identical to WSL engine .venv ✅
+  - client .venv: only client deps, no engine packages ✅
+
+Validation Snapshot (22/03 — M4 session)
+- python -m pytest tests/ -v (157/157 passed) ✅
+- main branch clean, all feature branches deleted ✅

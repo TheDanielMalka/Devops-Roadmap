@@ -906,6 +906,53 @@ Issue #17 — Player Registration Flow
   - Validate Steam ID exists and is public
   - Validate Steam name matches Steam ID via Steam API
 
-Validation Snapshot (22/03)
+Validation Snapshot (22/03 — after #15/#16/#17)
 - python -m pytest tests/ -v (91/91 passed) ✅
+- main branch clean, all feature branches deleted ✅
+
+Issue #55 — Player Appeal & Dispute System
+
+- Added disputes table to existing `engine/src/identity/database.py`:
+  - submit_dispute(wallet, reason) — player submits appeal (only if blacklisted)
+  - get_pending_disputes() — returns all disputes awaiting admin review
+  - resolve_dispute(wallet, approved, admin_note) — admin approves/rejects
+  - On approve: automatically calls unblacklist()
+  - Dispute dataclass: wallet_address, reason, status, admin_note
+- Added 7 tests in `engine/tests/test_disputes.py`
+
+Issue #19 — Identity Data Persistence
+
+- Fixed DB path: `players.db` now always saved to `engine/data/players.db`
+  - PlayerDatabase creates the data/ folder automatically on first run
+  - Previously created in unknown working directory
+- Created `engine/src/identity/backup.py`:
+  - backup_database() — copies players.db to engine/data/backups/players_YYYY-MM-DD.db
+  - cleanup_old_backups() — deletes backups older than 30 days
+  - Backup dir created automatically if missing
+- Created engine/data/ and engine/data/backups/ folders (tracked via .gitkeep)
+- Updated .gitignore to exclude *.db runtime files
+- Added 10 tests in `engine/tests/test_backup.py`
+- Note: daily reset of match counts is automatic via date('now') in SQLite — no cron needed
+
+Issue #18 — Identity Verification on Match Start
+
+- Created `engine/src/identity/verifier.py`:
+  - MatchVerifier.verify(wallet_address) — runs 3 checks in order:
+    1. Wallet registered in DB → rejected if not found
+    2. Wallet not blacklisted → rejected if banned
+    3. Daily match count < 10 → rejected if limit reached
+  - VerificationResult dataclass: approved (bool) + reason (str) for UI display
+  - daily_limit configurable (default: 10 matches/day)
+- Added match_log table to `engine/src/identity/database.py`:
+  - log_match(wallet) — records a match entry with today's date
+  - get_today_match_count(wallet) — counts matches played today
+  - Daily limit resets automatically at midnight via date('now') — no manual reset needed
+- Added 16 tests in `engine/tests/test_verifier.py`:
+  - Registration check (3 tests)
+  - Blacklist check (3 tests)
+  - Daily match limit (5 tests)
+  - Edge cases (5 tests): invalid wallet, two players independent, blacklist before limit, OK reason, non-empty reason
+
+Validation Snapshot (22/03 — end of session)
+- python -m pytest tests/ -v (all passing) ✅
 - main branch clean, all feature branches deleted ✅

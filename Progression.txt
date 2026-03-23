@@ -999,3 +999,53 @@ Environment Cleanup (22/03)
 Validation Snapshot (22/03 — M4 session)
 - python -m pytest tests/ -v (157/157 passed) ✅
 - main branch clean, all feature branches deleted ✅
+
+─────────────────────────────────────────────────────────────
+M7: User Dashboard & UI + M8: Risk & Fraud Engine (prep)
+─────────────────────────────────────────────────────────────
+
+UI — Dashboard Charts Upgrade (Relates #35)
+
+- Replaced WinLossChart donut chart with animated stat bars:
+  - Red glow bar for WINS, gray bar for LOSSES
+  - Win rate badge at bottom
+  - CSS keyframe animations: fill-wins / fill-losses (bars animate on mount)
+- Replaced EarningsChart recharts area with custom SVG:
+  - Line draws itself left-to-right on load
+  - Hover tooltips with value
+  - Peak & average stats displayed
+- index.css: added fill-wins/fill-losses keyframes, scale(1.02) card hover lift
+
+UI — Arena Hover Effect (Relates #35)
+
+- Added .arena-hover utility class in index.css:
+  - translateY(-1px) scale(1.01) + red border glow on hover
+- Applied to all interactive cards across pages:
+  - MatchLobby — public match rows + private match cards
+  - History — match history cards
+  - Leaderboard — top 3 player cards
+  - Profile — game connection rows
+  - Wallet — token rows
+- Dashboard: removed redundant subtitle from header
+
+Vision — Consensus Validation (M8 prep — Anti-Cheat)
+
+- Created `engine/src/vision/consensus.py`:
+  - MatchConsensus collects VisionEngine results from all players in a match
+  - submit(wallet_address, VisionEngineOutput) — each player submits their result
+  - evaluate() — finds majority result, requires 70% agreement (MAJORITY_THRESHOLD)
+  - ConsensusResult dataclass: agreed_result + flagged_wallets + status
+  - ConsensusStatus enum: PENDING / REACHED / FAILED
+  - flagged_wallets → list of cheaters (feeds future M8 penalty system)
+- Updated `engine/src/vision/watcher.py`:
+  - ScreenshotHandler accepts optional MatchConsensus instance
+  - Confirmed results auto-submitted to consensus
+- Added 22 tests in `engine/tests/test_consensus.py`
+- Future: flagged_wallets → Anti-Cheat Penalty System (M8):
+  - 1st offense: warning + 24h suspension
+  - 2nd offense: 7-day suspension
+  - 3rd offense: permanent BAN on wallet_address + steam_id
+
+Validation Snapshot (23/03 — end of session)
+- python -m pytest tests/ -v (172/172 passed) ✅
+- main branch clean, all feature branches deleted ✅

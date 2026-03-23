@@ -1049,3 +1049,58 @@ Vision — Consensus Validation (M8 prep — Anti-Cheat)
 Validation Snapshot (23/03 — end of session)
 - python -m pytest tests/ -v (172/172 passed) ✅
 - main branch clean, all feature branches deleted ✅
+
+─────────────────────────────────────────────────────────────
+M4: Web3 Wallet Integration (continued) + DB/UI Sync
+─────────────────────────────────────────────────────────────
+
+Issue #22 — Transaction History Ledger
+
+- Created `engine/src/wallet/ledger.py`:
+  - TransactionLedger: persistent SQLite ledger (engine/data/ledger.db)
+  - record(tx, wallet_address, tx_type, match_id) — persists WalletManager transactions
+  - get_by_wallet / get_by_match / get_by_date / get_all — full query support
+  - export_json / export_csv — audit & admin export
+  - LedgerEntry dataclass: tx_id, wallet_address, match_id, tx_type, amount, asset, timestamp, tx_hash, status
+  - Indexed on wallet_address, match_id, date(timestamp)
+- Updated wallet_manager.py (backward-compatible):
+  - Optional ledger= param — auto-records every transaction
+  - Optional match_id + tx_type params on send_payment()
+- Updated engine/src/wallet/__init__.py — exports all new classes
+- Added 30 tests in engine/tests/test_ledger.py
+
+Issue #24 — Fee Engine (Platform Commission)
+
+- Created `engine/src/wallet/fee_engine.py`:
+  - FeeEngine with configurable fee % (default 5%, range 0–50%)
+  - calculate(gross, wallet, asset, match_id) → FeeResult
+  - FeeResult: gross_amount, fee_amount, net_amount, fee_percent, asset, match_id, wallet_address
+  - Auto-logs fee deductions to TransactionLedger as TX_FEE
+  - net_amount() / fee_amount() quick helpers (no side effects)
+  - TODO marked: on-chain fee routing pending M5 Smart Contract
+- Added 28 tests in engine/tests/test_fee_engine.py
+- Pending M5: Route fees to platform wallet on-chain
+
+DB ↔ UI Dispute Status Sync
+
+- Updated Dispute dataclass: added resolution field
+- Dispute status aligned with UI: open → reviewing → escalated → resolved
+- Resolution values: approved | rejected | refund | void | player_a_wins | player_b_wins
+- Added update_dispute_status() — admin moves dispute through stages
+- Added get_open_disputes() — returns all non-resolved disputes
+- get_pending_disputes() kept as backward-compatible alias
+- Updated engine/tests/test_disputes.py (14 tests)
+
+Platform Fee Alignment
+
+- Admin.tsx: platformFee default 10 → 5 (matches engine DEFAULT_FEE_PERCENT=5%)
+
+Pending (requires M5 Smart Contract):
+- Issue #23 — WalletConnect Integration (full issue)
+- Issue #24 — Route fees to platform wallet on-chain
+- Issue #19 — Encrypt sensitive fields (moved to M9: Security Audit)
+- Issue #17 — Steam API validation (waiting for Valve API key)
+
+Validation Snapshot (23/03 — M4 complete session)
+- python -m pytest tests/ -v (238/238 passed) ✅
+- main branch clean, all feature branches deleted ✅

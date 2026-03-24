@@ -1104,3 +1104,61 @@ Pending (requires M5 Smart Contract):
 Validation Snapshot (23/03 — M4 complete session)
 - python -m pytest tests/ -v (238/238 passed) ✅
 - main branch clean, all feature branches deleted ✅
+
+─────────────────────────────────────────────────────────────
+UI Improvements (Relates #35)
+─────────────────────────────────────────────────────────────
+
+Dashboard Charts Upgrade
+
+- WinLossChart: replaced donut chart with animated fill bars (red/gray + win rate badge)
+- EarningsChart: replaced recharts with custom SVG — animated line draw on load, hover tooltips
+- EarningsChart: added getTotalLength guard for jsdom compatibility (CI fix)
+- index.css: fill-wins/fill-losses keyframes, scale(1.02) card hover lift, glow-breath animation
+
+Arena Hover Effect — All Pages
+
+- Added .arena-hover utility: translateY(-1px) scale(1.01) + red border glow
+- Applied to: MatchLobby, History, Leaderboard, Profile, Wallet
+
+─────────────────────────────────────────────────────────────
+M5: Smart Contract Escrow (prep)
+─────────────────────────────────────────────────────────────
+
+Issue #25 — Escrow Contract Design (partial)
+
+- Created engine/contracts/ArenaEscrow.sol:
+  - Solidity smart contract for locking player funds in escrow
+  - State machine: OPEN → LOCKED → RESOLVED → PAID
+  - Functions: deposit(), resolve(), withdraw(), timeout()
+  - 5% platform fee deducted on payout
+  - TODO: deploy on Testnet + connect engine via web3.py
+- Pending: docs + peer review (subtasks remaining in #25)
+
+─────────────────────────────────────────────────────────────
+Sync & Cleanup
+─────────────────────────────────────────────────────────────
+
+Types/DB/UI Alignment
+
+- src/types/index.ts: DisputeResolution updated — added approved/rejected/void
+- infra/sql/init.sql: dispute_resolution enum synced with engine + UI
+- wallet tx_type: ledger synced with frontend types (match_win/match_loss/fee aliases)
+- engine/src/wallet/__init__.py: exports aligned — FeeEngine, FeeResult, FeeConfigError
+
+Client Tests
+
+- New client/tests/test_client.py — 21 tests:
+  - Config load/save with defaults
+  - Game detection: CS2, Valorant, Fortnite, Apex (via psutil mock)
+  - Upload flow: success, non-200, network error, health check
+  - Failure paths: no engine, no file, exception — no crash
+- New client/tests/conftest.py — mocks pystray for CI (headless Linux)
+- Added pytest==9.* to client/requirements.txt
+- CI workflow updated: triggers on client/** changes
+
+Validation Snapshot (23/03 — end of day)
+- python -m pytest engine/tests/ -v (238/238 passed) ✅
+- npm run test ✅, npm run build ✅, npm run lint ✅
+- npx tsc --noEmit ✅
+- main branch clean, all feature branches deleted ✅

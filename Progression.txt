@@ -1162,3 +1162,143 @@ Validation Snapshot (23/03 — end of day)
 - npm run test ✅, npm run build ✅, npm run lint ✅
 - npx tsc --noEmit ✅
 - main branch clean, all feature branches deleted ✅
+
+─────────────────────────────────────────────────────────────
+M7: UI Full Redesign Sprint (24/03/2026)
+─────────────────────────────────────────────────────────────
+
+Profile Page Redesign (PR #162–#167)
+- Redesigned player card: gaming style with inline stats
+- Redesigned Connections and Game grid: compact cards with real game logos
+- Added real logos to mobile games section
+- Replaced Wallet card with per-game Stats card
+- Added real logos to Connections section (Steam, Discord, etc.)
+
+Leaderboard Redesign (PR #168)
+- Compact podium layout for top 3 players
+- Heatmap-style table for full rankings
+- Avatar support in leaderboard rows
+
+Avatar System (PR #169–#170)
+- Avatar picker: free / event / premium / upload tabs
+- Avatar background picker with custom colors and patterns
+- Avatar synced across Profile, Dashboard, and Sidebar
+- XP/Level system integrated: Bronze → Silver → Gold → Platinum → Diamond → Master
+
+Match History Redesign (PR #171–#172)
+- Full UI redesign: stats strip, battle report style, pill filters
+- PC/Mobile game dropdowns for filtering
+- Fixed Valorant, Fortnite logo URLs
+- Expandable per-match details: team A/B roster, winner, status
+- Removed AD SPACE banners from History and Dashboard
+
+Match Lobby Redesign (PR #173)
+- Full redesign with stake-based filtering
+- Public match details overlay on row click
+- Team split view with empty slot placeholders
+- Full-match UX: viewable but join blocked
+
+Dashboard Redesign (PR #174)
+- Command Center hero section
+- Daily Challenges widget
+- XP/level badge displayed on hero
+- Animated stat bars replacing donut chart (fill-wins/fill-losses)
+- Custom SVG earnings chart with animated line draw on load
+
+Legal Pages (PR #175–#178)
+- Terms of Service v2: full legal rewrite, accordion design, age/terms checkboxes on signup
+- Privacy Policy v2: full rewrite, accordion design
+- Responsible Gaming: full rewrite, 12 sections
+- Public legal routes accessible from auth page footer
+
+Landing Page Redesign (PR #176)
+- Full landing page redesign
+- Fixed Google Play logo URLs
+
+─────────────────────────────────────────────────────────────
+M7: Admin + Settings + Wallet Upgrades (24-25/03/2026)
+─────────────────────────────────────────────────────────────
+
+Admin Panel Redesign (PR #181–#182)
+- Full redesign: compact sidebar layout, DB-ready types
+- Disputes, Users, Audit upgraded to visual card & timeline layout
+- Test suite added for admin components
+
+Settings Redesign (PR #181)
+- Full redesign with tabbed layout
+- Daily betting limit per user (50–500 USDT range)
+- Maps to user_settings.daily_betting_limit in DB
+
+Wallet: dailyBettingLimit (PR #179–#180)
+- Replaced dailyWithdrawalLimit with dailyBettingLimit throughout
+- Added escrow notification type to NotificationCenter
+- escrow filter added to Wallet transaction UI
+
+─────────────────────────────────────────────────────────────
+M5: Smart Contract + Infrastructure (25-26/03/2026)
+─────────────────────────────────────────────────────────────
+
+CI/CD Upgrade (arena.yml)
+- Added test-frontend job: TypeScript check (tsc) + Vitest (npm test)
+- Added build-check job: Vite production build (depends on test-frontend)
+- Added sql-check job: validates infra/sql/*.sql on SQL file changes only
+- Renamed test → test-python, upgraded to actions/checkout@v4 + setup-python@v5
+- Added concurrency group: cancel-in-progress: true
+- Upgraded github-script@v6 → v7, setup-node@v4 with npm cache
+
+Bug Fixes (PR #183–#184)
+- walletStore.ts: corrected seed TX-003 fee from 10% to 5%
+- walletStore.ts: fixed double-deduction bug in getAvailableBalance — lockEscrow
+  already deducts from tokens, so pending escrow subtraction was double-counting
+- NotificationCenter: added missing escrow type to typeStyles and typeRoutes Records
+
+Frontend Tests Expansion (PR #184 — 63 new tests, total 93)
+- src/test/dashboard.page.test.tsx — 8 tests
+- src/test/wallet.page.test.tsx — 7 tests
+- src/test/profile.page.test.tsx — 6 tests
+- src/test/settings.page.test.tsx — 6 tests
+- src/test/legal.pages.test.tsx — 9 tests
+- src/test/wallet-store.test.ts — 13 tests
+- src/test/user-store.test.ts — 14 tests
+
+DB ↔ TypeScript Full Alignment (PR #185–#186)
+- Game enum extended to 7 games: added PUBG, COD, League of Legends
+- users table: added avatar, avatar_bg columns
+- user_stats table: added xp column
+- New user_settings table: daily_betting_limit, 2FA, notifications, region
+- New user_challenge_progress table with UNIQUE (user_id, challenge_id, date)
+- src/types/index.ts: DB mapping comments on all types
+
+Blockchain Infrastructure (PR #187)
+- docker-compose.yml: BLOCKCHAIN_RPC_URL, CONTRACT_ADDRESS, CHAIN_ID added to arena-engine
+- docker-compose.yml: VITE_CONTRACT_ADDRESS, VITE_CHAIN_ID added as frontend build args
+- .env.example: full rewrite to English, Smart Contract section added
+- .env: blockchain section with BSC Testnet defaults
+- engine/src/config.py: BLOCKCHAIN_RPC_URL, CONTRACT_ADDRESS, CHAIN_ID added
+
+English-Only Codebase (PR #187–#188)
+- Translated all Hebrew comments, docstrings, and strings to English across:
+  engine/src/identity/backup.py, database.py, registration.py, verifier.py
+  engine/tests/test_backup.py, test_registration_integration.py,
+  test_state_machine.py, test_verifier.py
+  docker-compose.yml, .env.example, arena.yml
+- Only intentional UI label retained: Settings.tsx עברית language option
+
+Issue #25 — Escrow Contract Design (COMPLETED)
+- ArenaEscrow.sol upgraded:
+  - Added cancelMatch(): playerA cancels WAITING match, full refund, no fee
+  - Added nonReentrant modifier on all fund-transfer functions
+  - Added pause()/unpause(): maps to platform_settings.kill_switch_active
+  - Added MatchCancelled, Paused, Unpaused, OracleUpdated events
+  - Oracle zero-address validation in constructor and setOracle
+  - Full DB/ledger alignment in NatSpec: every function documents which DB
+    tables are updated and which tx_types are recorded
+- infra/sql/init.sql: added on_chain_match_id BIGINT to matches table
+  + index on on_chain_match_id for event-driven lookups
+- docs/ArenaEscrow.md: full contract documentation — state machine, all
+  functions, money flow diagram, security table, DB alignment table
+
+Validation Snapshot (26/03 — end of session)
+- npm run test ✅ (93 tests), npm run build ✅, npm run lint ✅
+- npx tsc --noEmit ✅
+- main branch clean, all feature branches deleted ✅
